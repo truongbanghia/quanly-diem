@@ -16,3 +16,6 @@
 	+ xem danh sach lop: success.
 	+ xem diem trung binh: ...: diem.php
 	+ xem diem chi tiet: ...list_diem.php
+-- phan cong giang day:
+	+ xem lop hoc: success.
+	+ list_mon.php: loading.

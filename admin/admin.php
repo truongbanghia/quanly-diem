@@ -139,6 +139,9 @@
 					case 'assigned':
 						include_once('assigned.php');
 						break;
+					case 'list_mon':
+						include_once('list_mon.php');
+						break;
 					default:
 						include_once('statistic.php');
 						break;
