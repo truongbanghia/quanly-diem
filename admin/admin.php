@@ -72,7 +72,9 @@
 				<li><a href="index.php?page=user"><svg class="glyph stroked male user ">
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
 				<li><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
-                            <use xlink:href="#stroked-male-user" /></svg>Quản lý Giáo Viên</a></li>
+							<use xlink:href="#stroked-male-user" /></svg>Quản lý Giáo Viên</a></li>
+				<li><a href="index.php?page=assigned"><svg class="glyph stroked male user ">
+                            <use xlink:href="#stroked-app-window-with-content" /></svg>Phân Công Giảng Dạy</a></li>
                 <li><a href="index.php?page=class"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản lý Học Sinh</a></li>
 				<li><a href="index.php?page=diem"><svg class="glyph stroked open folder">
@@ -133,6 +135,9 @@
 						break;
 					case 'edit_teacher':
 						include_once('edit_teacher.php');
+						break;
+					case 'assigned':
+						include_once('assigned.php');
 						break;
 					default:
 						include_once('statistic.php');
