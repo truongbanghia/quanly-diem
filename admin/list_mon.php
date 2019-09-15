@@ -4,28 +4,31 @@
     }
 </script>
 <?php
-if (!defined('TEMPLATE')) {
-    die('bạn không có quyền truy cập trang này!');
-}
-    $sql = "SELECT * FROM user";
-    $query = mysqli_query($conn,$sql);
+    if (!defined('TEMPLATE')) {
+        die('bạn không có quyền truy cập trang này!');
+    }
+
+    $class_id = $_GET['id_class'];
+    $sql_lophoc = "SELECT * FROM lophoc WHERE MaLopHoc = '$class_id'";
+    $query_lophoc = mysqli_query($conn,$sql_lophoc);
+    $row_lophoc = mysqli_fetch_assoc($query_lophoc);
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="admin.php"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Danh sách lớp học</li>
+				<li class="active">Danh sách nhận lớp</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách lớp học</h1>
+				<h1 class="page-header">Danh sách Giáo Viên dạy lớp : <?php echo $row_lophoc['Tenlophoc'] ?></h1>
 			</div>
 		</div><!--/.row-->
-		<div id="toolbar" class="btn-group">
-            <a href="index.php?page=add_class" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i> Thêm lớp học
+        <div id="toolbar" class="btn-group">
+            <a href="index.php?page=add_mon" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i> Thêm Môn - Phân Công
             </a>
         </div>
 		<div class="row">
@@ -38,32 +41,29 @@ if (!defined('TEMPLATE')) {
 
 						    <thead>
 						    <tr>
-						        <th data-field="id" data-sortable="true">ID</th>
-						        <th data-field="name"  data-sortable="true">Khối</th>
-                                <th data-field="price" data-sortable="true">Tên Lớp</th>
-                                <th>Xem Danh Sách Giáo Viên Theo Môn Học</th>
-                                <th>Hành Động</th>
+                                <th>Thứ Tự</th>
+						        <th data-field="id" data-sortable="true">Tên Môn Học</th>                                
+                                <th data-field="name"  data-sortable="true">Giáo Viên Được Phân Công</th>
+                                <th data-field="price" data-sortable="true">Phân công Giáo Viên</th>                                
 						    </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * FROM lophoc";
-                                $query = mysqli_query($conn,$sql);
-                                while ($row = mysqli_fetch_assoc($query)) {
-                                ?>                                  
-                                <tr>
-                                    <td style=""><?php echo $row['MaLopHoc'] ?></td>
-                                    <td style=""><?php echo $row['KhoiHoc'] ?></td>
-                                    <td style=""><?php echo $row['Tenlophoc'] ?></td>                                       
-                                    <td class="form-group">
-                                        <a href="index.php?page=list_stu&id_class=<?php echo $row['MaLopHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i></a>                                        
-                                    </td>
-                                    <td  class="form-group">
-                                    <a href="index.php?page=edit_class&id_class=<?php echo $row['MaLopHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a onclick=" return thongbao();" href="del_class.php?id_lop=<?php echo $row['MaLopHoc']; ?>" class="btn btn-danger <?php if ($_SESSION['user_level'] == 2) {echo 'disabled';} ?>"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
-                                </tr>  
-                            <?php } ?>                              
+                                // SELECT * FROM dayhoc JOIN monhoc ON dayhoc.MaMonHoc = monhoc.MaMonHoc JOIN giaovien ON dayhoc.MaGV = giaovien.MaGV WHERE dayhoc.MaLopHoc = $class_id
+                                    $sql_view = "SELECT * FROM monhoc";
+                                    $query_view = mysqli_query($conn,$sql_view);
+                                    $i = 1;
+                                    while ($row_view = mysqli_fetch_assoc($query_view)) {
+                                    ?>                                                              
+                                        <tr>
+                                            <td><?php echo $i++; ?></td>
+                                            <td style=""><?php echo $row_view['TenMonHoc'] ?></td>
+                                            <td style=""></td>                                            
+                                            <td class="form-group">
+                                                <a href="index.php?page=edit_mon&id_mon=<?php echo $row_view['MaMonHoc']; ?>&id_class=<?php echo $class_id; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                            </td>                                                                                                                                                                                                                
+                                        </tr>  
+                                    <?php } ?>                                                                
                             </tbody>
 						</table>
                     </div>

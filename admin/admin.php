@@ -142,6 +142,12 @@
 					case 'list_mon':
 						include_once('list_mon.php');
 						break;
+					case 'add_mon':
+						include_once('add_mon.php');
+						break;
+					case 'edit_mon':
+						include_once('edit_mon.php');
+						break;
 					default:
 						include_once('statistic.php');
 						break;
