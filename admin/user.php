@@ -4,6 +4,10 @@
     }
 </script>
 <?php
+    if (!defined('TEMPLATE')) {
+		die('bạn không có quyền truy cập trang này!');
+    }
+    
     $sql = "SELECT * FROM user ORDER BY user_level ASC";
     $query = mysqli_query($conn,$sql);
 ?>

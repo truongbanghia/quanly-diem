@@ -28,7 +28,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
                 <li><a href="admin.php"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                <li><a href="admin.php?page=user">Quản lý học sinh</a></li>
+                <li><a href="index.php?page=class">Quản lý học sinh</a></li>
 				<li class="active">Thêm Học Sinh</li>
 			</ol>
 		</div><!--/.row-->

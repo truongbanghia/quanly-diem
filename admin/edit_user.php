@@ -1,4 +1,7 @@
 <?php 
+if (!defined('TEMPLATE')) {
+    die('bạn không có quyền truy cập trang này!');
+}
     $user_id = $_GET['user_id'];
     //Lấy thông tin có sẵn của user
     $sql_view = "SELECT * FROM user WHERE user_id = $user_id";
@@ -16,17 +19,19 @@
         }else{
             //Lấy thông tin của user_mail kiểm tra trùng hay không            
             if($_POST['user_pass'] == '' && $_POST['user_re_pass']==''){
-            $user_pass = $row_view['user_pass'];
-            $user_mail = $_POST['user_mail'];
-            $sql_update = "UPDATE user SET user_name='$user_name', user_mail = '$user_mail', user_pass = '$user_pass', user_level = '$user_level' WHERE user_id = $user_id";
-            $query_update = mysqli_query($conn,$sql_update);
-            header('location: index.php?page=user');
+                $user_pass = $row_view['user_pass'];
+                $pass_forgot = $row_view['pass_forgot'];
+                $user_mail = $_POST['user_mail'];
+                $sql_update = "UPDATE user SET user_name='$user_name', user_mail = '$user_mail', user_pass = '$user_pass',pass_forgot = '$pass_forgot' ,user_level = '$user_level' WHERE user_id = $user_id";
+                $query_update = mysqli_query($conn,$sql_update);
+                header('location: index.php?page=user');
             }elseif($_POST['user_pass'] != $_POST['user_re_pass']){
             $err = '<div class="alert alert-danger">Mật khẩu không khớp !</div>';
             }else{
+                $pass_forgot = $_POST['user_pass'];
                 $user_pass = md5($_POST['user_pass']);
                 $user_mail = $_POST['user_mail'];
-                $sql_update = "UPDATE user SET user_name='$user_name', user_mail = '$user_mail', user_pass = '$user_pass', user_level = '$user_level' WHERE user_id = $user_id";
+                $sql_update = "UPDATE user SET user_name='$user_name', user_mail = '$user_mail', user_pass = '$user_pass',pass_forgot = '$pass_forgot' ,user_level = '$user_level' WHERE user_id = $user_id";
                 $query_update = mysqli_query($conn,$sql_update);
                 header('location: index.php?page=user');
             }

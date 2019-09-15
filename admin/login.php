@@ -1,5 +1,8 @@
 <?php
-
+	if (!defined('TEMPLATE')) {
+		die('bạn không có quyền truy cập trang này!');
+	}
+	
 	if (!empty($_POST['remember'])) {
 		setcookie ("username",$_POST["mail"],time()+ 3600);
 		setcookie ("password",$_POST["pass"],time()+ 3600);
@@ -9,7 +12,7 @@
 	}
 	if (isset($_POST['sbm'])) {
 		$user_mail = $_POST['mail'];
-		$user_pass = $_POST['pass'];
+		$user_pass = md5($_POST['pass']);
 
 		$sql_user = "SELECT * FROM user WHERE user_mail = '$user_mail' AND user_pass = '$user_pass'";
 		$query_user = mysqli_query($conn,$sql_user);
@@ -90,7 +93,7 @@
 					<div class="checkbox text-center">
 						<label>
 							<input name="remember" type="checkbox" value="Remember Me" checked>Nhớ tài khoản
-						</label>
+						</label>						
 					</div>
 					
 					<div class="container-login100-form-btn">
@@ -100,8 +103,8 @@
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="../index.php">
-							Quay lại Trang Chủ
+						<a class="txt2" href="forgot_pass.php">
+							Quên mật khẩu
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

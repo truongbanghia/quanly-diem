@@ -70,10 +70,12 @@
 							<use xlink:href="#stroked-dashboard-dial"></use>
 						</svg> Dashboard</a></li>
 				<li><a href="index.php?page=user"><svg class="glyph stroked male user ">
-                            <use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
+							<use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
+				<li><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
+                            <use xlink:href="#stroked-male-user" /></svg>Quản lý Giáo Viên</a></li>
                 <li><a href="index.php?page=class"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản lý Học Sinh</a></li>
-				<li><a href="#"><svg class="glyph stroked open folder">
+				<li><a href="index.php?page=diem"><svg class="glyph stroked open folder">
 							<use xlink:href="#stroked-open-folder" /></svg>Quản lý Điểm</a></li>
 				<li><a href="#"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
 				
@@ -113,6 +115,24 @@
 						break;
 					case 'edit_stu':
 						include_once('edit_stu.php');
+						break;
+					case 'diem':
+						include_once('diem.php');
+						break;
+					case 'list_diem':
+						include_once('list_diem.php');
+						break;
+					case 'edit_diem':
+						include_once('edit_diem.php');
+						break;
+					case 'teacher':
+						include_once('teacher.php');
+						break;
+					case 'add_teacher':
+						include_once('add_teacher.php');
+						break;
+					case 'edit_teacher':
+						include_once('edit_teacher.php');
 						break;
 					default:
 						include_once('statistic.php');

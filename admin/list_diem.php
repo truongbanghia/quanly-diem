@@ -1,8 +1,3 @@
-<script>
-    function thongbao(){
-       return confirm("Bạn chắc chắn muốn xóa?");
-    }
-</script>
 <?php 
     if (!defined('TEMPLATE')) {
         die('bạn không có quyền truy cập trang này!');
@@ -17,20 +12,15 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="admin.php"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Danh sách học sinh</li>
+				<li class="active">Bảng điểm học sinh</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách học sinh lớp: <?php echo $row_view['Tenlophoc']; ?></h1>
+				<h1 class="page-header">Bảng điểm học sinh lớp: <?php echo $row_view['Tenlophoc']; ?></h1>
 			</div>
 		</div><!--/.row-->
-		<div id="toolbar" class="btn-group">
-            <a href="index.php?page=add_stu&class_id=<?php echo $class_id; ?>" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i> Thêm Học Sinh
-            </a>
-        </div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -43,15 +33,10 @@
 						    <tr>
 						        <th data-field="id" data-sortable="true">Mã Học Sinh</th>
                                 <th data-field="name"  data-sortable="true">Họ & Tên</th>
-                                <th data-sortable="true">Tên Lớp Học</th>
-                                <th data-sortable="true">Ngày Sinh</th>
-                                <th data-sortable="true">Nơi Sinh</th>
-                                <th data-sortable="true">Giới Tính</th>
-                                <th data-sortable="true">Dân Tộc</th>
-                                <th data-sortable="true">Họ Tên Cha</th>
-                                <th data-sortable="true">Họ Tên Mẹ</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
+                                <th data-sortable="true">Điểm Trung Bình Học Kỳ I</th>
+                                <th data-sortable="true">Điểm Trung Bình Học Kỳ II</th>
+                                <th data-sortable="true">Điểm Trung Bình Cả Năm</th>                               
+                                <th>Xem Chi Tiết & Sửa</th>
 						    </tr>
                             </thead>
                             <tbody> 
@@ -63,19 +48,13 @@
                                 <tr>
                                     <td><?php echo $row['MaHS']; ?></td>
                                     <td><?php echo $row['TenHS']; ?></td>
-                                    <td><?php echo $row_view['Tenlophoc']; ?></td>
-                                    <td><?php echo $row['NgaySinh']; ?></td>
-                                    <td><?php echo $row['NoiSinh']; ?></td>
-                                    <td><?php echo $row['GioiTinh']; ?></td>
-                                    <td><?php echo $row['DanToc']; ?></td>
-                                    <td><?php echo $row['HoTenCha']; ?></td>
-                                    <td><?php echo $row['HoTenMe']; ?></td>
+                                    <td>9.5 </td>
+                                    <td>8.5</td>
+                                    <td>8.5</td>
+                                    
                                     <td class="form-group">
-                                        <a href="index.php?page=edit_stu&id_hs=<?php echo $row['MaHS']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    </td>
-                                    <td>
-                                        <a onclick=" return thongbao();" href="del_stu.php?id_hs=<?php echo $row['MaHS'] ?>&id_class=<?php echo $row['MaLopHoc'] ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
+                                        <a href="index.php?page=edit_diem&id_hs=<?php echo $row['MaHS']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    </td>                                    
                                 </tr> 
                                     <?php } ?>                        
                             </tbody>

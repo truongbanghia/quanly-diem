@@ -1,0 +1,18 @@
+--phi chuc nang:
+	+ phan quyen he thong: success.
+	+ Lay lai pass ve mail: success.
+	+ cookie 'remember me': success.
+--quan ly nhan vien:
+	+ them, sua, xoa nhan vien: success.
+--quan ly giao vien:
+	+ them, sua, xoa giao vien: success.
+--quan ly lop hoc:
+	them, sua, xoa lop hoc: success.
+-- quan ly hoc sinh:
+	+ them hoc sinh: success.
+	+ xoa hoc sinh: success.
+	+ sua hoc sinh: success.
+-- quan ly diem:
+	+ xem danh sach lop: success.
+	+ xem diem trung binh: ...: diem.php
+	+ xem diem chi tiet: ...list_diem.php

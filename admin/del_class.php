@@ -1,5 +1,5 @@
 <?php
-
+    
     session_start();
     include_once('../admin/config/connect.php');
     $maLopHoc = $_GET['id_lop'];

@@ -23,11 +23,7 @@ if (!defined('TEMPLATE')) {
 				<h1 class="page-header">Danh sách lớp học</h1>
 			</div>
 		</div><!--/.row-->
-		<div id="toolbar" class="btn-group">
-            <a href="index.php?page=add_class" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i> Thêm lớp học
-            </a>
-        </div>
+		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -41,8 +37,7 @@ if (!defined('TEMPLATE')) {
 						        <th data-field="id" data-sortable="true">ID</th>
 						        <th data-field="name"  data-sortable="true">Khối</th>
                                 <th data-field="price" data-sortable="true">Tên Lớp</th>
-                                <th>Xem Danh Sách Học Sinh</th>
-                                <th>Hành Động</th>
+                                <th>Xem Điểm</th>                            
 						    </tr>
                             </thead>
                             <tbody>
@@ -56,12 +51,8 @@ if (!defined('TEMPLATE')) {
                                     <td style=""><?php echo $row['KhoiHoc'] ?></td>
                                     <td style=""><?php echo $row['Tenlophoc'] ?></td>                                       
                                     <td class="form-group">
-                                        <a href="index.php?page=list_stu&id_class=<?php echo $row['MaLopHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i></a>                                        
-                                    </td>
-                                    <td  class="form-group">
-                                    <a href="index.php?page=edit_class&id_class=<?php echo $row['MaLopHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a onclick=" return thongbao();" href="del_class.php?id_lop=<?php echo $row['MaLopHoc']; ?>" class="btn btn-danger <?php if ($_SESSION['user_level'] == 2) {echo 'disabled';} ?>"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
+                                        <a href="index.php?page=list_diem&id_class=<?php echo $row['MaLopHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i></a>                                        
+                                    </td>                                   
                                 </tr>  
                             <?php } ?>                              
                             </tbody>
