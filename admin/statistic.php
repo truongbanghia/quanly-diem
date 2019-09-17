@@ -26,7 +26,10 @@
 							<svg class="glyph stroked female-user"><use xlink:href="#stroked-female-user"></use></svg>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">400</div>
+							<?php
+								$query_hocsinh = mysqli_query($conn,"SELECT * FROM hocsinh");
+							?>
+							<div class="large"><?php echo mysqli_num_rows($query_hocsinh); ?></div>
 							<div class="text-muted">Học Sinh</div>
 						</div>
 					</div>
@@ -39,9 +42,54 @@
 							<svg class="glyph stroked fale-user"><use xlink:href="#stroked-male-user"></use></svg>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">24</div>
+							<?php
+								$query_giaovien = mysqli_query($conn,"SELECT * FROM giaovien");
+							?>
+							<div class="large"><?php echo mysqli_num_rows($query_giaovien); ?></div>
 							<div class="text-muted">Giáo Viên</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-md-4 col-lg-4">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">150</div>
+							<div class="text-muted">Học Sinh Giỏi</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-md-4 col-lg-4">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+						<svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">200</div>
+							<div class="text-muted">Học Sinh Tiên Tiến</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-4 col-lg-4">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+						<svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">50</div>
+							<div class="text-muted">Học Sinh Trung Bình</div>
+						</div>						
 					</div>
 				</div>
 			</div>

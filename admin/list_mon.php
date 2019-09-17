@@ -9,7 +9,7 @@
     }
 
     $class_id = $_GET['id_class'];
-    $sql_lophoc = "SELECT * FROM lophoc WHERE MaLopHoc = '$class_id'";
+    $sql_lophoc = "SELECT * FROM dayhoc JOIN monhoc ON dayhoc.MaMonHoc = monhoc.MaMonHoc JOIN giaovien ON dayhoc.MaGV = giaovien.MaGV JOIN lophoc ON dayhoc.MaLopHoc = lophoc.MaLopHoc WHERE dayhoc.MaLopHoc = '$class_id'";
     $query_lophoc = mysqli_query($conn,$sql_lophoc);
     $row_lophoc = mysqli_fetch_assoc($query_lophoc);
 ?>
@@ -23,11 +23,11 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách Giáo Viên dạy lớp : <?php echo $row_lophoc['Tenlophoc'] ?></h1>
+				<h1 class="page-header">Danh sách Giáo Viên dạy lớp : <?php echo $row_lophoc['Tenlophoc']; ?></h1>
 			</div>
 		</div><!--/.row-->
         <div id="toolbar" class="btn-group">
-            <a href="index.php?page=add_mon" class="btn btn-success">
+            <a href="index.php?page=add_mon&id_class=<?php echo $class_id; ?>" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i> Thêm Môn - Phân Công
             </a>
         </div>
@@ -50,7 +50,7 @@
                             <tbody>
                                 <?php
                                 // SELECT * FROM dayhoc JOIN monhoc ON dayhoc.MaMonHoc = monhoc.MaMonHoc JOIN giaovien ON dayhoc.MaGV = giaovien.MaGV WHERE dayhoc.MaLopHoc = $class_id
-                                    $sql_view = "SELECT * FROM monhoc";
+                                    $sql_view = "SELECT * FROM dayhoc JOIN monhoc ON dayhoc.MaMonHoc = monhoc.MaMonHoc JOIN giaovien ON dayhoc.MaGV = giaovien.MaGV WHERE dayhoc.MaLopHoc = '$class_id'";
                                     $query_view = mysqli_query($conn,$sql_view);
                                     $i = 1;
                                     while ($row_view = mysqli_fetch_assoc($query_view)) {
@@ -58,7 +58,7 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td style=""><?php echo $row_view['TenMonHoc'] ?></td>
-                                            <td style=""></td>                                            
+                                            <td style=""><?php echo $row_view['TenGV'] ?></td>                                            
                                             <td class="form-group">
                                                 <a href="index.php?page=edit_mon&id_mon=<?php echo $row_view['MaMonHoc']; ?>&id_class=<?php echo $class_id; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
                                             </td>                                                                                                                                                                                                                
