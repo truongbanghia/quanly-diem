@@ -5,12 +5,10 @@
 
     $id_class = $_GET['id_class'];
 
-    
-
     if (isset($_POST['sbm'])) {
         $maMonHoc = $_POST['MaMonHoc'];
 
-        header('location: index.php?page=edit_mon&id_mon='.$maMonHoc.'&id_class='.$id_class.'');
+        header('location: index.php?page=add_mon_gv&id_mon='.$maMonHoc.'&id_class='.$id_class.'');
     }
 ?>
 
@@ -40,11 +38,17 @@
                                         <select name="MaMonHoc" class="form-control">
                                             <?php
                                                 $query_monhoc = mysqli_query($conn,"SELECT * FROM monhoc");
-                                                while ($row_monhoc = mysqli_fetch_assoc($query_monhoc)) {                                              
+                                                while ($row_monhoc = mysqli_fetch_assoc($query_monhoc)) { 
+                                                                                               
+                                                    // $sql_lophoc = "SELECT * FROM dayhoc JOIN monhoc ON dayhoc.MaMonHoc = monhoc.MaMonHoc JOIN giaovien ON dayhoc.MaGV = giaovien.MaGV JOIN lophoc ON dayhoc.MaLopHoc = lophoc.MaLopHoc WHERE dayhoc.MaLopHoc = '$id_class'";
+                                                    // $query_lophoc = mysqli_query($conn,$sql_lophoc);
+                                                    // while ($row_lophoc = mysqli_fetch_assoc($query_lophoc)) {                                                        
+                                                    
                                             ?>
-                                                <option value=<?php echo $row_monhoc['MaMonHoc']; ?> ><?php echo $row_monhoc['TenMonHoc']; ?></option>
+                                                    <option value=<?php echo $row_monhoc['MaMonHoc']; ?> ><?php echo $row_monhoc['TenMonHoc']; ?></option>
                                                 
-                                            <?php } ?>                     
+                                            <?php } ?>
+
                                         </select>
                                     </div>                                                                                                        
                                     <button name="sbm" type="submit" class="btn btn-success">Chọn</button>                                   

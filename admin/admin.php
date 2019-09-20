@@ -148,6 +148,9 @@
 					case 'edit_mon':
 						include_once('edit_mon.php');
 						break;
+					case 'add_mon_gv':
+						include_once('add_mon_gv.php');
+						break;
 					default:
 						include_once('statistic.php');
 						break;

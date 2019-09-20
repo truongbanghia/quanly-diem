@@ -46,7 +46,7 @@ if (!defined('TEMPLATE')) {
 		<div class="row">
 			<ol class="breadcrumb">
                 <li><a href="index.php"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                <li><a href="index.php?page=user">Quản lý giáo viên</a></li>
+                <li><a href="index.php?page=teacher">Quản lý giáo viên</a></li>
 				<li class="active"><?php echo $row_view['TenGV']; ?></li>
 			</ol>
 		</div><!--/.row-->
