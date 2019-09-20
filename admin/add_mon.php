@@ -45,8 +45,7 @@
                                                     // while ($row_lophoc = mysqli_fetch_assoc($query_lophoc)) {                                                        
                                                     
                                             ?>
-                                                    <option value=<?php echo $row_monhoc['MaMonHoc']; ?> ><?php echo $row_monhoc['TenMonHoc']; ?></option>
-                                                
+                                                    <option value=<?php echo $row_monhoc['MaMonHoc']; ?> ><?php echo $row_monhoc['TenMonHoc']; ?></option>                                            
                                             <?php } ?>
 
                                         </select>
