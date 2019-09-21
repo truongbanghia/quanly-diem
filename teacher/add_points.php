@@ -9,7 +9,7 @@
 
 	if (isset($_POST['sbm'])) {
 		$sql_hs = "SELECT * FROM hocsinh WHERE MaLopHoc = '$id_lophoc'";
-		$query_hs = mysqli_query($conn,$sql_hs);											
+		$query_hs = mysqli_query($conn,$sql_hs);													
 		for($i=1;$i<=($row_hs=mysqli_fetch_assoc($query_hs));$i++) {	
 			$maHS = $_POST["MaHS$i"];		
 			$diemMieng = $_POST["diem_mieng$i"];			
@@ -21,10 +21,17 @@
 			
 			$diemTB = round(($diemMieng+$diem_15p1+$diem_15p2+$diem_1tiet1*2+$diem_1tiet2*2+$diem_thi*3)/10,1);			
 
-			$sql_points = "INSERT INTO diem (MaHocKy, MaMonHoc, MaHS, MaLopHoc, DiemMieng, Diem15Phut1, Diem15Phut2, Diem1Tiet1, Diem1Tiet2, DiemThi, DiemTB) VALUES ('$id_hocky','$id_monhoc','$maHS','$id_lophoc','$diemMieng','$diem_15p1','$diem_15p2','$diem_1tiet1','$diem_1tiet2','$diem_thi','$diemTB')";
-			$query_points = mysqli_query($conn,$sql_points);						
+			$sql_diem = "SELECT * FROM diem WHERE MaHS= '$maHS' AND MaMonHoc = '$id_monhoc'";
+			$query_diem = mysqli_query($conn,$sql_diem);
+			if (mysqli_num_rows($query_diem) != "") {
+				$err = 'Không được nhập lại!';
+			}else {
 
-			header('location: index.php?page_gv=points');			
+				$sql_points = "INSERT INTO diem (MaHocKy, MaMonHoc, MaHS, MaLopHoc, DiemMieng, Diem15Phut1, Diem15Phut2, Diem1Tiet1, Diem1Tiet2, DiemThi, DiemTB) VALUES ('$id_hocky','$id_monhoc','$maHS','$id_lophoc','$diemMieng','$diem_15p1','$diem_15p2','$diem_1tiet1','$diem_1tiet2','$diem_thi','$diemTB')";
+				$query_points = mysqli_query($conn,$sql_points);						
+				header('location: index.php?page_gv=points');
+			}
+						
 		}
 	}
 
@@ -52,6 +59,13 @@
 			<div class="col-md-12">
 					<div class="panel panel-default">
 							<div class="panel-body">
+								<?php
+									if (isset($err)) {
+										echo '<div class="alert alert-danger" role="alert">';
+										echo $err;
+										echo '</div>';
+									}
+								?>
 								<table class="table">									
 									<thead>
 									<tr>
