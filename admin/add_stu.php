@@ -76,15 +76,14 @@
                                 <div class="form-group">
                                     <label>Họ Tên Mẹ</label>
                                     <input name="stu_name_mother" required type="text" class="form-control">
-                                </div>
-                                
+                                </div>                                
                                 <div class="form-group">
                                     <label>Lớp</label>
                                     <input name="stu_class" required type="text" class="form-control" value="<?php echo $row['Tenlophoc'] ?>">
                                 </div>                           
                                 <button name="sbm" type="submit" class="btn btn-success">Thêm mới</button>
                                 <button type="reset" class="btn btn-default">Làm mới</button>
-                            </div>
+                                
                         </form>
                         </div>
                     </div>

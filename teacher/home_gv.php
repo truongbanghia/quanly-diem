@@ -71,7 +71,7 @@
 						</svg> Thông Tin Cá Nhân</a></li>
                 <li><a href="index.php?page_gv=points"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản Lí Điểm Học Sinh</a></li>
-				<li><a href="#"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
+				
 				
 			</ul>
 
@@ -103,7 +103,8 @@
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-table.js"></script>	
+	<script src="js/bootstrap-table.js"></script>
+	
 	</body>
 
 </html>

@@ -1,3 +1,8 @@
+<?php
+	if (!defined('TEMPLATE')) {
+        die('Bạn không có quyền truy cập trang này');
+    }
+?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
@@ -33,16 +38,23 @@
 									</tr>
 									</thead>
 									<tbody>
+										<?php
+											$gv_mail = $_SESSION['mail_gv'];
+											$sql_gv = "SELECT * FROM giaovien JOIN dayhoc ON giaovien.MaGV = dayhoc.MaGV JOIN lophoc ON lophoc.MaLopHoc = dayhoc.MaLopHoc WHERE giaovien.gv_mail = '$gv_mail'";
+											$query_gv = mysqli_query($conn,$sql_gv);
+											while ($row_gv = mysqli_fetch_assoc($query_gv)) {									
+										?>
 										<tr>
-											<td style="">1</td>
-											<td style="">9A1</td>
+											<td style=""><?php echo $row_gv['MaLopHoc']; ?></td>
+											<td style=""><?php echo $row_gv['Tenlophoc']; ?></td>
 											<td class="form-group">
-												<a href="index.php?page_gv=add_points" class="btn btn-primary"><i class="glyphicon glyphicon-file"></i></a>											
+												<a href="index.php?page_gv=add_points&MaHocKy=<?php echo $row_gv['MaHocKy'] ?>&MaMonHoc=<?php echo $row_gv['MaMonHoc'] ?>&MaLopHoc=<?php echo $row_gv['MaLopHoc'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-file"></i></a>											
 											</td>
 											<td class="form-group">											
 												<a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
 											</td>
-										</tr>										
+										</tr>
+											<?php } ?>										
 									</tbody>
 								</table>
 							</div>
@@ -62,6 +74,4 @@
 		</div><!--/.row-->
     </div>	<!--/.main-->   
     
-    <script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-table.js"></script>	
+ 

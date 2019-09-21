@@ -63,7 +63,7 @@ CREATE TABLE `giaovien` (
 INSERT INTO giaovien VALUES("1","A","Trần Thị Hảo","Yên Dũng - Bắc Giang","0976404956","gv.hao@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("2","GD","Đào Xuân Thanh","Xuân Mai - Hà Nội","0976454151","gv.thanh@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("3","Ti","Trương Bá Nghĩa","Long Biên - Hà Nội","0363602696","gv.nghia@gmail.com","e10adc3949ba59abbe56e057f20f883e");
-INSERT INTO giaovien VALUES("4","A","Giáo Viên A","Trâu Quỳ","0754545412","gv.a@gmail.com","");
+INSERT INTO giaovien VALUES("4","A","Giáo Viên A","Trâu Quỳ","0754545412","gv.a@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("5","CN","Nguyễn Văn B","Hưng Yên","0976454512","gv.b@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("6","H","Nguyễn Văn C","Thái Bình","0123456789","gv.c@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("7","S","Nguyễn Thị D","Hà Nội","0123456879","gv.d@gmail.com","e10adc3949ba59abbe56e057f20f883e");
@@ -268,7 +268,7 @@ CREATE TABLE `giaovien` (
 INSERT INTO giaovien VALUES("1","A","Trần Thị Hảo","Yên Dũng - Bắc Giang","0976404956","gv.hao@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("2","GD","Đào Xuân Thanh","Xuân Mai - Hà Nội","0976454151","gv.thanh@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("3","Ti","Trương Bá Nghĩa","Long Biên - Hà Nội","0363602696","gv.nghia@gmail.com","e10adc3949ba59abbe56e057f20f883e");
-INSERT INTO giaovien VALUES("4","A","Giáo Viên A","Trâu Quỳ","0754545412","gv.a@gmail.com","");
+INSERT INTO giaovien VALUES("4","A","Giáo Viên A","Trâu Quỳ","0754545412","gv.a@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("5","CN","Nguyễn Văn B","Hưng Yên","0976454512","gv.b@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("6","H","Nguyễn Văn C","Thái Bình","0123456789","gv.c@gmail.com","e10adc3949ba59abbe56e057f20f883e");
 INSERT INTO giaovien VALUES("7","S","Nguyễn Thị D","Hà Nội","0123456879","gv.d@gmail.com","e10adc3949ba59abbe56e057f20f883e");
