@@ -2,8 +2,8 @@
     //ENTER THE RELEVANT INFO BELOW
     include_once('connect.php');
 
-    $backup_name        = 'mybackup.sql';
-    $tables             = array('dayhoc', 'diem', 'giaovien', 'hocky', 'hocsinh', 'lophoc', 'monhoc', 'user');
+    $backup_name        = "quanlydiem.sql";
+    $tables             = array("user", "hocsinh", "giaovien", "lophoc", "monhoc", "hocky", "diem", "dayhoc");
     
 
     $result = mysqli_query($conn,"SHOW TABLES");
@@ -23,7 +23,7 @@
     
         for ($i=0; $i < $num_fields; $i++) { 
             while ($row = mysqli_fetch_row($result)) {
-                $return .= 'INSERT INTO '.$table.'VALUES(';
+                $return .= 'INSERT INTO '.$table.' VALUES(';
                 for ($j=0; $j < $num_fields; $j++) { 
                     $row[$j] = addslashes($row[$j]);
                     if (isset($row[$j])) {
@@ -38,7 +38,7 @@
     }
     
     
-    $handle = fopen('backup_db_qldiem.sql', 'w+');
+    $handle = fopen('database/backup_db_qldiem.sql', 'w+');
     fwrite($handle, $return);
     fclose($handle);
     echo "success";
