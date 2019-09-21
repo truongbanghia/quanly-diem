@@ -147,10 +147,10 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("1","20191","A","210001","1","8","9.5","7.5","8","9.25","8.75","8.6");
-INSERT INTO diem VALUES("2","20191","CN","210001","1","9","8.5","7","8","6.5","7","7.5");
+INSERT INTO diem VALUES("39","20191","CN","210003","2","5","5","5","5","5","5","5");
+INSERT INTO diem VALUES("40","20191","CN","210004","2","5","5","5","5","5","5","5");
 
 
 
@@ -242,10 +242,10 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("1","20191","A","210001","1","8","9.5","7.5","8","9.25","8.75","8.6");
-INSERT INTO diem VALUES("2","20191","CN","210001","1","9","8.5","7","8","6.5","7","7.5");
+INSERT INTO diem VALUES("39","20191","CN","210003","2","5","5","5","5","5","5","5");
+INSERT INTO diem VALUES("40","20191","CN","210004","2","5","5","5","5","5","5","5");
 
 
 

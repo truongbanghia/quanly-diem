@@ -48,7 +48,7 @@
 											<td style=""><?php echo $row_gv['MaLopHoc']; ?></td>
 											<td style=""><?php echo $row_gv['Tenlophoc']; ?></td>
 											<td class="form-group">
-												<a href="index.php?page_gv=add_points&MaHocKy=<?php echo $row_gv['MaHocKy'] ?>&MaMonHoc=<?php echo $row_gv['MaMonHoc'] ?>&MaLopHoc=<?php echo $row_gv['MaLopHoc'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-file"></i></a>											
+												<a href="index.php?page_gv=add_points&MaHocKy=<?php echo $row_gv['MaHocKy'] ?>&MaMonHoc=<?php echo $row_gv['MaMonHoc'] ?>&MaLopHoc=<?php echo $row_gv['MaLopHoc'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-file "></i></a>											
 											</td>
 											<td class="form-group">											
 												<a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
