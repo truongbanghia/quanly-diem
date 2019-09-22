@@ -2,6 +2,7 @@
     session_start();
     define('TEMPLATE',true);
     include_once ('config/connect.php');
+    include_once ('../PHPExcel-1.8/Classes/PHPExcel.php');
     
     if (isset($_SESSION['mail_user'])) {
         // if($_SESSION['user_level']==1) {

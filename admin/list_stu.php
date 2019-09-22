@@ -12,6 +12,37 @@
     $sql_view = "SELECT * FROM lophoc WHERE MaLopHoc = '$class_id'";
     $query_view = mysqli_query($conn,$sql_view);
     $row_view = mysqli_fetch_assoc($query_view);
+    $lophoc=$row_view['Tenlophoc'];
+    if (isset($_POST['sbmEx'])) {
+        $objExcel = new PHPExcel();
+        $objExcel->setActiveSheetIndex(0);
+        $sheet = $objExcel->getActiveSheet()->setTitle('9A2');
+        $rowCount = 1;
+        $sheet->setCellValue('A'.$rowCount,'Mã Học Sinh');
+        $sheet->setCellValue('B'.$rowCount,'Tên Học Sinh');
+        $sheet->setCellValue('C'.$rowCount,'Ngày Sinh');
+        $sheet->setCellValue('D'.$rowCount,'Giới Tính');
+
+        $result = mysqli_query($conn,"SELECT MaHS,TenHS,NgaySinh,GioiTinh FROM hocsinh WHERE MaLopHoc = '$class_id'");
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rowCount++;
+            $sheet->setCellValue('A'.$rowCount,$row['MaHS']);
+            $sheet->setCellValue('B'.$rowCount,$row['TenHS']);
+            $sheet->setCellValue('C'.$rowCount,$row['NgaySinh']);
+            $sheet->setCellValue('D'.$rowCount,$row['GioiTinh']);
+        }
+        $objWriter = new PHPExcel_Writer_Excel2007($objExcel);
+        $filename = "DSHS_$lophoc.xlsx";
+        $objWriter->save($filename);        
+        header('Content-Disposition: attachment; filename="'.$filename.'"');
+        header('Content-Type: application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet');
+        header('Content-Length: '. filesize($filename));
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: no-cache');
+        readfile($filename);
+        return;
+    }
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -23,14 +54,18 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách học sinh lớp: <?php echo $row_view['Tenlophoc']; ?></h1>
-			</div>
+                <h1 class="page-header">Danh sách học sinh lớp: <?php echo $row_view['Tenlophoc']; ?></h1>
+                <form method="post">
+                    <button type="submit" name="sbmEx" class="btn btn-success">Xuất ra file Excel</button>                    
+                </form> 
+            </div>            
 		</div><!--/.row-->
 		<div id="toolbar" class="btn-group">
             <a href="index.php?page=add_stu&class_id=<?php echo $class_id; ?>" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i> Thêm Học Sinh
-            </a>
-        </div>
+            </a>                              
+        </div>                               
+        
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
