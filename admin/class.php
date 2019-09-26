@@ -8,7 +8,9 @@ if (!defined('TEMPLATE')) {
     die('bạn không có quyền truy cập trang này!');
 }
     $sql = "SELECT * FROM user";
-    $query = mysqli_query($conn,$sql);
+    $query = mysqli_query($conn,$sql);    
+
+    
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -18,15 +20,19 @@ if (!defined('TEMPLATE')) {
 			</ol>
 		</div><!--/.row-->
 		
-		<div class="row">
+		<div class="row" style="margin-bottom: 10px">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách lớp học</h1>
-			</div>
+                <h1 class="page-header">Danh sách lớp học</h1>
+                <!-- xuất ra ex -->
+                <form method="post" action="excel.php">
+                    <button type="submit" name="btnExport" class="btn btn-info">Xuất Danh Sách Học Sinh Ra Excel</button>                                     
+                </form> 
+            </div>       
 		</div><!--/.row-->
 		<div id="toolbar" class="btn-group">
             <a href="index.php?page=add_class" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i> Thêm lớp học
-            </a>
+            </a>                       
         </div>
 		<div class="row">
 			<div class="col-lg-12">
