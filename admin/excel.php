@@ -20,11 +20,17 @@ if(isset($_POST['btnExport'])){
         $sql = "SELECT * FROM hocsinh WHERE MaLopHoc = $lophoc[MaLopHoc]";
         $result = mysqli_query($conn,$sql);
         $numRow = 1;
-    
+        $objPHPExcel->getActiveSheet()->setCellValue('A'.$numRow.'', 'Mã Học Sinh');
+        $objPHPExcel->getActiveSheet()->setCellValue('B'.$numRow.'', 'Tên Học Sinh');
+        $objPHPExcel->getActiveSheet()->setCellValue('C'.$numRow.'', 'Giới Tính');
+        $objPHPExcel->getActiveSheet()->setCellValue('D'.$numRow.'', 'Ngày Sinh');
+
         while ($row = mysqli_fetch_assoc($result)) {
+            $numRow++;
             $objPHPExcel->getActiveSheet()->setCellValue('A'.$numRow.'', ''.$row['MaHS'].'');
             $objPHPExcel->getActiveSheet()->setCellValue('B'.$numRow.'', ''.$row['TenHS'].'');
-            $numRow++;
+            $objPHPExcel->getActiveSheet()->setCellValue('C'.$numRow.'', ''.$row['GioiTinh'].'');
+            $objPHPExcel->getActiveSheet()->setCellValue('D'.$numRow.'', ''.$row['NgaySinh'].'');
     }
     }
        
