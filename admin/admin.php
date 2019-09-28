@@ -60,11 +60,7 @@
 		</nav>
 
 		<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-			<form role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
-				</div>
-			</form>
+			<?php include_once('search_box.php'); ?>
 			<ul class="nav menu">
 				<li class="active"><a href="index.php"><svg class="glyph stroked dashboard-dial">
 							<use xlink:href="#stroked-dashboard-dial"></use>
@@ -91,6 +87,9 @@
 			if (isset($_GET['page'])) {
 				
 				switch ($_GET['page']) {
+					case 'search':
+						include_once('search.php');
+						break;
 					case 'user':
 						include_once('user.php');
 						break;
@@ -126,6 +125,9 @@
 						break;
 					case 'edit_diem':
 						include_once('edit_diem.php');
+						break;
+					case 'edit_diem_hs':
+						include_once('edit_diem_hs.php');
 						break;
 					case 'teacher':
 						include_once('teacher.php');

@@ -929,7 +929,10 @@ h1.page-header {
 	overflow: scroll;
 }
 
-
+/* Chỉnh sửa thêm */
+table th,td{
+	padding: 10px;
+}
 
 
 

@@ -3,10 +3,25 @@
         die('bạn không có quyền truy cập trang này!');
     }
     $stu_id = $_GET['id_hs'];
+    $id_mon = $_GET['id_mon'];
 
-    $sql_view = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS = '$stu_id'";
+    $sql_view = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS = '$stu_id' AND diem.MaMonHoc = '$id_mon'";
     $query_view = mysqli_query($conn,$sql_view);
     
+    if (isset($_POST['sbm'])) {       
+        $DiemMieng = $_POST['DiemMieng'];
+        $Diem15Phut1 = $_POST['Diem15Phut1'];
+        $Diem15Phut2 = $_POST['Diem15Phut2'];
+        $Diem1Tiet1 = $_POST['Diem1Tiet1'];
+        $Diem1Tiet2 = $_POST['Diem1Tiet2'];
+        $DiemThi = $_POST['DiemThi'];
+
+        $diemTBMon = round(($DiemMieng+$Diem15Phut1+$Diem15Phut2+$Diem1Tiet1*2+$Diem1Tiet2*2+ $DiemThi*3)/10,1);
+        
+        $query_update = mysqli_query($conn,"UPDATE diem SET DiemMieng = '$DiemMieng', Diem15Phut1 = '$Diem15Phut1', Diem15Phut2 = '$Diem15Phut2', Diem1Tiet1 = '$Diem1Tiet1', Diem1Tiet2 = '$Diem1Tiet2', DiemThi = '$DiemThi', DiemTB = '$diemTBMon' WHERE MaHS = '$stu_id' AND MaMonHoc = '$id_mon'");
+
+        header('location: index.php?page=edit_diem&id_hs='.$stu_id.'');
+    }
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -46,7 +61,7 @@
                             <tbody> 
                                
                                 <?php
-                                    while($row_view = mysqli_fetch_assoc($query_view)){                                  
+                                    $row_view = mysqli_fetch_assoc($query_view)                                 
                                 ?>                               
                                 <tr>
                                 <form  method="post">
@@ -54,24 +69,23 @@
                                     <td><?php echo $row_view['TenHS']; ?></td>
                                     <td><?php echo $row_view['MaHocKy']; ?></td>
                                     <td><?php echo $row_view['MaMonHoc']; ?></td>
-                                    <td ><?php echo $row_view['DiemMieng']; ?></td>
-                                    <td ><?php echo $row_view['Diem15Phut1']; ?></td>
-                                    <td ><?php echo $row_view['Diem15Phut2']; ?></td>
-                                    <td><?php echo $row_view['Diem1Tiet1']; ?></td>
-                                    <td><?php echo $row_view['Diem1Tiet2']; ?></td>
-                                    <td><?php echo $row_view['DiemThi']; ?></td> 
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="DiemMieng" value="<?php echo $row_view['DiemMieng']; ?>"></td>
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="Diem15Phut1" value="<?php echo $row_view['Diem15Phut1']; ?>"></td>
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="Diem15Phut2" value="<?php echo $row_view['Diem15Phut2']; ?>"></td>
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="Diem1Tiet1" value="<?php echo $row_view['Diem1Tiet1']; ?>"></td>
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="Diem1Tiet2" value="<?php echo $row_view['Diem1Tiet2']; ?>"></td>
+                                    <td class="form-group"><input style="width: 80px;" type="text" name="DiemThi" value="<?php echo $row_view['DiemThi']; ?>"></td> 
                                     <?php
                                         $diemTBMon = round(($row_view['DiemMieng']+$row_view['Diem15Phut1']+$row_view['Diem15Phut2']+$row_view['Diem1Tiet1']*2+$row_view['Diem1Tiet2']*2+$row_view['DiemThi']*3)/10,1);
-                                        $query_insert = mysqli_query($conn,"INSERT INTO diem(DiemTB) VALUES($diemTBMon) WHERE MaMonHoc = '{$row_view['MaMonHoc']}' AND MaHS = '$stu_id");
+                                        $query_insert = mysqli_query($conn,"INSERT INTO diem(DiemTB) VALUES($diemTBMon) WHERE MaMonHoc = '{$row_view['MaMonHoc']}' AND MaHS = '$stu_id' AND MaMonHoc = '$id_mon'");
                                     ?>                      
                                     <td><?php echo $diemTBMon; ?></td>
                                     <td><?php echo $row_view['NamHoc']; ?></td>
                                     <td class="form-group">
-                                        <a href="index.php?page=edit_diem_hs&id_hs=<?php echo $row_view['MaHS']; ?>&id_mon=<?php echo $row_view['MaMonHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    </td>     
+                                        <button type="submit" name="sbm" class="btn btn-success">Chấp Nhận</button>
+                                    </td>
                                     </form>                                      
-                                </tr> 
-                                    <?php }?>  
+                                </tr>                                 
                                                       
                             </tbody>
 						</table>
