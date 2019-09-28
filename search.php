@@ -1,5 +1,7 @@
 <?php
-    
+    if (!defined('TEMPLATE')) {
+        die('bạn không có quyền truy cập trang này!');
+    }
     if (isset($_GET['id_hs'])) {
         $id_hs = $_GET['id_hs'];
         //Bóc tách keyWord thành mảng
@@ -31,6 +33,11 @@
 </head>
 
 <body id="search_main">
+                    <nav class="main-menu text-lg-right" style="margin-right: 150px">
+						<ul>
+							<li ><a style="color: red;" href="index.php">Trang Chủ</a></li>							
+						</ul>
+					</nav>
     <table align="center" class="infor">
         <tr>
             <th>Họ Và Tên: </th>

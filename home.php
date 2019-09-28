@@ -1,5 +1,7 @@
 <?php 
-	include_once('admin/config/connect.php');
+	if (!defined('TEMPLATE')) {
+        die('bạn không có quyền truy cập trang này!');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
