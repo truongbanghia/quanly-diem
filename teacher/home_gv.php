@@ -85,7 +85,9 @@
                 case 'add_points':
                     include_once('add_points.php');
                     break;
-                
+				case 'list_points':
+                    include_once('list_points.php');
+                    break;
                 case 'points':
                     include_once('points.php');
 					break;

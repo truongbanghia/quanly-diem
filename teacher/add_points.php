@@ -18,15 +18,13 @@
 			$diem_1tiet1 = $_POST['diem_1tiet1'.$i];			
 			$diem_1tiet2 = $_POST['diem_1tiet2'.$i];						
 			$diem_thi = $_POST['diem_thi'.$i];
-			
-			$diemTB = round(($diemMieng+$diem_15p1+$diem_15p2+$diem_1tiet1*2+$diem_1tiet2*2+$diem_thi*3)/10,1);			
-
+						
 			$sql_diem = "SELECT * FROM diem WHERE MaHS= '$maHS' AND MaMonHoc = '$id_monhoc'";
 			$query_diem = mysqli_query($conn,$sql_diem);
 			if (mysqli_num_rows($query_diem) != "") {
 				$err = 'Không được nhập lại!';
 			}else {
-
+				$diemTB = round(($diemMieng+$diem_15p1+$diem_15p2+$diem_1tiet1*2+$diem_1tiet2*2+$diem_thi*3)/10,1);	
 				$sql_points = "INSERT INTO diem (MaHocKy, MaMonHoc, MaHS, MaLopHoc, DiemMieng, Diem15Phut1, Diem15Phut2, Diem1Tiet1, Diem1Tiet2, DiemThi, DiemTB) VALUES ('$id_hocky','$id_monhoc','$maHS','$id_lophoc','$diemMieng','$diem_15p1','$diem_15p2','$diem_1tiet1','$diem_1tiet2','$diem_thi','$diemTB')";
 				$query_points = mysqli_query($conn,$sql_points);						
 				header('location: index.php?page_gv=points');

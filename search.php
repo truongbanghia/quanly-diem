@@ -84,8 +84,18 @@
             </tr>
         </thead>
         <tbody align="center">
-            <?php                
+            <?php
+                $tb_hk = 0;
+                $i=0;                            
                 while($row = mysqli_fetch_assoc($query)){
+                    if ($row['MaHocKy']=='20191') {
+                        $tb_hk += $row['DiemTB'];
+                        $i++; 
+                    }elseif($row['MaHocKy']=='20192') {
+                        $tb_hk2 += $row['DiemTB'];
+                        $i++; 
+                    }                    
+                                                       
             ?>
             <tr>
                 
@@ -105,7 +115,7 @@
         <tfoot>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ I</th>
-                <th colspan="2">8.0</th>
+                <th colspan="2"><?php echo round($tb_hk/$i,1); ?></th>
             </tr>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ II</th>

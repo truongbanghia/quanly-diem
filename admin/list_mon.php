@@ -44,7 +44,9 @@
                                 <th>Thứ Tự</th>
 						        <th data-field="id" data-sortable="true">Tên Môn Học</th>                                
                                 <th data-field="name"  data-sortable="true">Giáo Viên Được Phân Công</th>
-                                <th data-field="price" data-sortable="true">Phân công Giáo Viên</th>                                
+                                <th>Học kỳ</th> 
+                                <th data-field="price" data-sortable="true">Phân công Giáo Viên</th>
+                                                              
 						    </tr>
                             </thead>
                             <tbody>
@@ -58,7 +60,8 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td style=""><?php echo $row_view['TenMonHoc'] ?></td>
-                                            <td style=""><?php echo $row_view['TenGV'] ?></td>                                            
+                                            <td style=""><?php echo $row_view['TenGV'] ?></td> 
+                                            <td><?php echo $row_view['MaHocKy'] ?></td>                                           
                                             <td class="form-group">
                                                 <a href="index.php?page=edit_mon&id_mon=<?php echo $row_view['MaMonHoc']; ?>&id_class=<?php echo $class_id; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
                                             </td>                                                                                                                                                                                                                

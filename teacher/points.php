@@ -1,7 +1,9 @@
 <?php
 	if (!defined('TEMPLATE')) {
         die('Bạn không có quyền truy cập trang này');
-    }
+	}
+	
+	$gv_mail = $_SESSION['mail_gv'];
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -15,14 +17,16 @@
 			<div class="col-lg-12">
 				<h1 class="page-header">Vui Lòng Chọn Lớp Cần Nhập Điểm</h1>
 			</div>
+			 
 		</div><!--/.row-->
-		<!-- <div id="toolbar" class="btn-group">
-            <a href="category-add.html" class="btn btn-success">
-                <i class="glyphicon glyphicon-plus"></i> Thêm danh mục
-            </a>
-        </div> -->
+
 		<div class="row">
 			<div class="col-md-12">
+			<form method="post" action="../teacher/excel_gv.php">
+					<input type="hidden" name="mail" value="<?php echo $gv_mail ?>">
+                    <button type="submit" name="btnExport" class="btn btn-info">Xuất Danh Sách Lớp Ra Excel</button>                                     
+			</form>
+			<br>
 					<div class="panel panel-default">
 							<div class="panel-body">
 								<table 
@@ -34,12 +38,11 @@
 										<th data-field="id" data-sortable="true">ID</th>
 										<th>Tên Lớp Học</th>
 										<th>Nhập Điểm</th>
-										<th>Xem Điểm</th>
+										<th>Xem Điểm Đã Nhập</th>
 									</tr>
 									</thead>
 									<tbody>
-										<?php
-											$gv_mail = $_SESSION['mail_gv'];
+										<?php											
 											$sql_gv = "SELECT * FROM giaovien JOIN dayhoc ON giaovien.MaGV = dayhoc.MaGV JOIN lophoc ON lophoc.MaLopHoc = dayhoc.MaLopHoc WHERE giaovien.gv_mail = '$gv_mail'";
 											$query_gv = mysqli_query($conn,$sql_gv);
 											while ($row_gv = mysqli_fetch_assoc($query_gv)) {									
@@ -51,7 +54,7 @@
 												<a href="index.php?page_gv=add_points&MaHocKy=<?php echo $row_gv['MaHocKy'] ?>&MaMonHoc=<?php echo $row_gv['MaMonHoc'] ?>&MaLopHoc=<?php echo $row_gv['MaLopHoc'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-file "></i></a>											
 											</td>
 											<td class="form-group">											
-												<a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
+												<a href="index.php?page_gv=list_points&MaHocKy=<?php echo $row_gv['MaHocKy'] ?>&MaMonHoc=<?php echo $row_gv['MaMonHoc'] ?>&MaLopHoc=<?php echo $row_gv['MaLopHoc'] ?>" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
 											</td>
 										</tr>
 											<?php } ?>										

@@ -148,17 +148,18 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("55","20191","A","210001","1","4.5","8","9","4","8.5","7","6.8");
+INSERT INTO diem VALUES("55","20191","A","210001","1","7","7","6","6","6","9","7.1");
 INSERT INTO diem VALUES("56","20191","A","210002","1","4","5.5","7.5","8","9.5","10","8.2");
 INSERT INTO diem VALUES("57","20191","A","210005","1","8","7.5","4.5","6","7","8","7");
 INSERT INTO diem VALUES("58","20191","A","210003","2","8","9","5","5","6","8","6.8");
 INSERT INTO diem VALUES("59","20191","A","210004","2","8","9","6","7","10","10","8.7");
-INSERT INTO diem VALUES("60","20191","Ti","210001","1","6","6","6","6","6","6","6");
+INSERT INTO diem VALUES("60","20191","Ti","210001","1","7","7","6","6","6","8","6.8");
 INSERT INTO diem VALUES("61","20191","Ti","210002","1","8","9","10","5","7.5","8","7.6");
 INSERT INTO diem VALUES("62","20191","Ti","210005","1","4","5","6","7","8","9","7.2");
 INSERT INTO diem VALUES("63","20191","Ti","210007","1","1","2","3","4","5","6","4.2");
+INSERT INTO diem VALUES("64","20191","Ti","210006","3","5","7","6","5","9","7.5","6.9");
 
 
 
@@ -180,17 +181,27 @@ CREATE TABLE `dayhoc` (
   CONSTRAINT `fk_day_hocky` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_day_lophoc` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`),
   CONSTRAINT `fk_day_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO dayhoc VALUES("1","A","4","2","20191","DEC");
 INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ádsad");
-INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Nghĩa");
+INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Tin");
 INSERT INTO dayhoc VALUES("4","CN","5","2","20191","abc");
 INSERT INTO dayhoc VALUES("5","H","6","1","20191","ád");
 INSERT INTO dayhoc VALUES("6","S","7","1","20191","ád");
 INSERT INTO dayhoc VALUES("7","T","9","1","20191","Giáo sư");
 INSERT INTO dayhoc VALUES("8","V","8","1","20191","abc");
 INSERT INTO dayhoc VALUES("14","A","4","1","20191","ABC");
+INSERT INTO dayhoc VALUES("16","H","6","2","20191","1");
+INSERT INTO dayhoc VALUES("17","A","1","3","20191","1");
+INSERT INTO dayhoc VALUES("18","CN","5","3","20191","1");
+INSERT INTO dayhoc VALUES("19","GD","2","3","20191","1");
+INSERT INTO dayhoc VALUES("20","H","6","3","20191","3");
+INSERT INTO dayhoc VALUES("21","S","7","3","20191","1");
+INSERT INTO dayhoc VALUES("22","S","7","3","20191","1");
+INSERT INTO dayhoc VALUES("23","T","9","3","20191","2");
+INSERT INTO dayhoc VALUES("24","Ti","3","3","20191","1");
+INSERT INTO dayhoc VALUES("25","V","8","3","20191","1");
 
 
 
@@ -212,17 +223,27 @@ CREATE TABLE `dayhoc` (
   CONSTRAINT `fk_day_hocky` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_day_lophoc` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`),
   CONSTRAINT `fk_day_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO dayhoc VALUES("1","A","4","2","20191","DEC");
 INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ádsad");
-INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Nghĩa");
+INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Tin");
 INSERT INTO dayhoc VALUES("4","CN","5","2","20191","abc");
 INSERT INTO dayhoc VALUES("5","H","6","1","20191","ád");
 INSERT INTO dayhoc VALUES("6","S","7","1","20191","ád");
 INSERT INTO dayhoc VALUES("7","T","9","1","20191","Giáo sư");
 INSERT INTO dayhoc VALUES("8","V","8","1","20191","abc");
 INSERT INTO dayhoc VALUES("14","A","4","1","20191","ABC");
+INSERT INTO dayhoc VALUES("16","H","6","2","20191","1");
+INSERT INTO dayhoc VALUES("17","A","1","3","20191","1");
+INSERT INTO dayhoc VALUES("18","CN","5","3","20191","1");
+INSERT INTO dayhoc VALUES("19","GD","2","3","20191","1");
+INSERT INTO dayhoc VALUES("20","H","6","3","20191","3");
+INSERT INTO dayhoc VALUES("21","S","7","3","20191","1");
+INSERT INTO dayhoc VALUES("22","S","7","3","20191","1");
+INSERT INTO dayhoc VALUES("23","T","9","3","20191","2");
+INSERT INTO dayhoc VALUES("24","Ti","3","3","20191","1");
+INSERT INTO dayhoc VALUES("25","V","8","3","20191","1");
 
 
 
@@ -250,17 +271,18 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("55","20191","A","210001","1","4.5","8","9","4","8.5","7","6.8");
+INSERT INTO diem VALUES("55","20191","A","210001","1","7","7","6","6","6","9","7.1");
 INSERT INTO diem VALUES("56","20191","A","210002","1","4","5.5","7.5","8","9.5","10","8.2");
 INSERT INTO diem VALUES("57","20191","A","210005","1","8","7.5","4.5","6","7","8","7");
 INSERT INTO diem VALUES("58","20191","A","210003","2","8","9","5","5","6","8","6.8");
 INSERT INTO diem VALUES("59","20191","A","210004","2","8","9","6","7","10","10","8.7");
-INSERT INTO diem VALUES("60","20191","Ti","210001","1","6","6","6","6","6","6","6");
+INSERT INTO diem VALUES("60","20191","Ti","210001","1","7","7","6","6","6","8","6.8");
 INSERT INTO diem VALUES("61","20191","Ti","210002","1","8","9","10","5","7.5","8","7.6");
 INSERT INTO diem VALUES("62","20191","Ti","210005","1","4","5","6","7","8","9","7.2");
 INSERT INTO diem VALUES("63","20191","Ti","210007","1","1","2","3","4","5","6","4.2");
+INSERT INTO diem VALUES("64","20191","Ti","210006","3","5","7","6","5","9","7.5","6.9");
 
 
 
