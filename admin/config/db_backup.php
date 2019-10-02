@@ -3,13 +3,17 @@
     include_once('connect.php');
 
     $backup_name        = "quanlydiem.sql";
-    $tables             = array("user", "hocsinh", "giaovien", "lophoc", "monhoc", "hocky", "diem", "dayhoc");
+    // $tables             = array("dayhoc", "diem", "giaovien", "hocky", "hocsinh", "lophoc", "monhoc","user");
     
 
     $result = mysqli_query($conn,"SHOW TABLES");
     while ($row = mysqli_fetch_row($result)) {
-        $tables[] = $row[0];
+        $tables[] = $row[0];        
     }
+
+    // echo '<pre>';
+    //     print_r($tables);
+    // echo '</pre>';
     
     $return = '';
     
@@ -17,7 +21,7 @@
         $result = mysqli_query($conn, "SELECT * FROM ".$table);
         $num_fields = mysqli_num_fields($result);
     
-        $return .= 'DROP TABLE '.$table.';';
+        // $return .= 'DROP TABLE '.$table.';';
         $row2 = mysqli_fetch_row(mysqli_query($conn, 'SHOW CREATE TABLE '.$table));
         $return .= "\n\n".$row2[1].";\n\n";
     
@@ -38,7 +42,7 @@
     }
     
     
-    $handle = fopen('database/backup_db_qldiem.sql', 'w+');
+    $handle = fopen('database/quanlydiem_backup.sql', 'w+');
     fwrite($handle, $return);
     fclose($handle);
     echo "success";

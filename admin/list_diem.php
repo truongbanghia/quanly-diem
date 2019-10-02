@@ -7,6 +7,7 @@
     $sql_view = "SELECT * FROM lophoc WHERE MaLopHoc = '$class_id'";
     $query_view = mysqli_query($conn,$sql_view);
     $row_view = mysqli_fetch_assoc($query_view);
+
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -39,7 +40,7 @@
                                 <th>Xem Chi Tiết & Sửa</th>
 						    </tr>
                             </thead>
-                            <tbody> 
+                            <tbody>                                 
                                 <?php
                                     $sql = "SELECT * FROM hocsinh WHERE MaLopHoc = '$class_id'";
                                     $query = mysqli_query($conn,$sql);                                                                                                             
