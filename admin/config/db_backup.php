@@ -19,9 +19,11 @@
     
     foreach ($tables as $table) {
         $result = mysqli_query($conn, "SELECT * FROM ".$table);
+        //trả về số cột
         $num_fields = mysqli_num_fields($result);
     
         // $return .= 'DROP TABLE '.$table.';';
+        //trả về hàng hiện tại theo mảng liên tục
         $row2 = mysqli_fetch_row(mysqli_query($conn, 'SHOW CREATE TABLE '.$table));
         $return .= "\n\n".$row2[1].";\n\n";
     
@@ -29,6 +31,7 @@
             while ($row = mysqli_fetch_row($result)) {
                 $return .= 'INSERT INTO '.$table.' VALUES(';
                 for ($j=0; $j < $num_fields; $j++) { 
+                    //chèn vào chuỗi khi trong chuỗi có nháy '  và "
                     $row[$j] = addslashes($row[$j]);
                     if (isset($row[$j])) {
                         $return .= '"'.$row[$j].'"';} else { $return .= '""';}
