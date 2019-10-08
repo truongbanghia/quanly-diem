@@ -6,7 +6,9 @@
 
     $sql_view = "SELECT * FROM lophoc WHERE MaLopHoc = '$class_id'";
     $query_view = mysqli_query($conn,$sql_view);
-    $row_view = mysqli_fetch_assoc($query_view);
+    $row_view = mysqli_fetch_assoc($query_view);                          
+
+    
 
 ?>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
@@ -40,17 +42,31 @@
                                 <th>Xem Chi Tiết & Sửa</th>
 						    </tr>
                             </thead>
-                            <tbody>                                 
-                                <?php
+                            <tbody>                                                                 
+                                <?php                                                                                                     
                                     $sql = "SELECT * FROM hocsinh WHERE MaLopHoc = '$class_id'";
                                     $query = mysqli_query($conn,$sql);                                                                                                             
-                                    while ($row = mysqli_fetch_assoc($query)) {                                                      
+                                    while ($row = mysqli_fetch_assoc($query)) { 
+                                        $sql_diem = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN monhoc ON diem.MaMonHoc = monhoc.MaMonHoc JOIN lophoc ON hocsinh.MaLopHoc = lophoc.MaLopHoc JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS = '{$row['MaHS']}'";
+                                        $query_diem = mysqli_query($conn,$sql_diem);
+                                        $tb_hk = 0;
+                                        $tb_hk2 = 0;
+                                        $i = 0;
+                                        while($row_diem = mysqli_fetch_assoc($query_diem)){
+                                            if ($row_diem['MaHocKy']=='20191') {
+                                                $tb_hk += $row_diem['DiemTB'];
+                                                $i++; 
+                                            }elseif($row_diem['MaHocKy']=='20192') {
+                                                $tb_hk2 += $row_diem['DiemTB'];
+                                                $i++; 
+                                            }   
+                                        }                                                    
                                 ?>                               
                                 <tr>
                                     <td><?php echo $row['MaHS']; ?></td>
                                     <td><?php echo $row['TenHS']; ?></td>
-                                    <td>9.5 </td>
-                                    <td>8.5</td>
+                                    <td><?php if(isset($tb_hk)){echo round($tb_hk/$i,1);}else{echo '---';}?></td>
+                                    <td><?php if(isset($tb_hk2)){echo round($tb_hk2/$i,1);}else{echo '---';} ?></td>
                                     <td>8.5</td>
                                     
                                     <td class="form-group">

@@ -93,16 +93,17 @@
         <tbody align="center">
             <?php
                 $tb_hk = 0;
-                $i=0;                            
+                $tb_hk2 = 0;
+                $i=0; 
+                $j = 0;                          
                 while($row = mysqli_fetch_assoc($query)){
                     if ($row['MaHocKy']=='20191') {
                         $tb_hk += $row['DiemTB'];
                         $i++; 
                     }elseif($row['MaHocKy']=='20192') {
                         $tb_hk2 += $row['DiemTB'];
-                        $i++; 
-                    }                    
-                                                       
+                        $j++; 
+                    }                                                                      
             ?>
             <tr>
                 
@@ -122,20 +123,38 @@
         <tfoot>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ I</th>
-                <th colspan="2"><?php if(!isset($err)){if(isset($tb_hk)){echo round($tb_hk/$i,1);}else{echo '---';}}else{echo '---';} ?></th>
+                <th colspan="2"><?php if(!isset($err)){if($tb_hk != 0 && $i != 0){echo $tb_hk=round($tb_hk/$i,1);}else{echo '---';}}else{echo '---';} ?></th>
             </tr>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ II</th>
-                <th colspan="2"><?php if(isset($tb_hk2)){echo round($tb_hk2/$i,1);}else{echo '---';} ?></th>
+                <th colspan="2"><?php if(!isset($err)){if($tb_hk2 != 0 && $j != 0){echo $tb_hk2=round($tb_hk2/$j,1);}else{echo '---';}}else{echo '---';} ?></th>
             </tr>
             <tr>
                 <?php 
-                    if (isset($tb_hk) && isset($tb_hk2)) {
-                        $dtb = round(($tb_hk+$tb_hk2*2)/3,1); 
-                    }
+                    if ($tb_hk != 0 && $tb_hk2 != 0) {
+                        $dtb = round(($tb_hk+($tb_hk2*2))/3,1); 
+                    }                 
                 ?>
                 <th colspan="9">Điểm Trung Bình Năm Học</th>
                 <th colspan="2"><?php if(isset($dtb)){echo $dtb;}else{echo '---';} ?></th>
+                
+            </tr>
+            <tr>                
+                <th colspan="9">Xếp Loại</th>
+                <th colspan="2"><?php if (isset($dtb)) {
+                    if ($dtb >= 0 && $dtb <= 3.9) {
+                        echo 'Kém';
+                    }elseif($dtb >= 4 && $dtb <= 4.9){
+                        echo 'Yếu';
+                    }elseif($dtb >= 5 && $dtb <= 6.4){
+                        echo 'Trung Bình';
+                    }elseif($dtb >= 6.5 && $dtb <= 7.9){
+                        echo 'Khá';
+                    }elseif($dtb >= 8){
+                        echo 'Giỏi';
+                    }
+                }?></th>
+                
             </tr>
         </tfoot>
     </table>

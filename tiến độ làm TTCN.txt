@@ -2,6 +2,7 @@
 	+ phan quyen he thong: success.
 	+ Lay lai pass ve mail: success.
 	+ cookie 'remember me': success.
+	+ backup database: success.
 --quan ly nhan vien:
 	+ them, sua, xoa nhan vien: success.
 --quan ly giao vien:
@@ -12,10 +13,22 @@
 	+ them hoc sinh: success.
 	+ xoa hoc sinh: success.
 	+ sua hoc sinh: success.
+	+ xuat ds hoc sinh ra excel: success.
 -- quan ly diem:
 	+ xem danh sach lop: success.
 	+ xem diem trung binh: ...: diem.php
 	+ xem diem chi tiet: ...list_diem.php
--- phan cong giang day:
-	+ xem lop hoc: success.
-	+ list_mon.php: loading...
+-- quan ly diem:
+	+ xem danh sach lop: success.
+	+ xem diem trung binh: ...: diem.php
+	+ xem diem chi tiet: ...list_diem.php
+-------------------------------------
++ in diem trung binh trong admin: loading
++ chuc nang doi mat khau: loading
++ nhap danh sach hoc sinh tu excel/admin: loading
++ nhap diem = excel/giaoviec: loading
++ thuat toan phan trang/ pagination: loading
++ thong ke - bao cao: loading
+
+
+
