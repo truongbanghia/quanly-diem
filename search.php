@@ -12,8 +12,15 @@
        $sql = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN monhoc ON diem.MaMonHoc = monhoc.MaMonHoc JOIN lophoc ON hocsinh.MaLopHoc = lophoc.MaLopHoc JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS LIKE '$endKeyWord'";
        $query = mysqli_query($conn,$sql);
 
+       if (mysqli_num_rows($query) == "") {
+           echo '<script>';
+           echo 'alert("Không tìm thấy mã vừa nhập !!!")';            
+           echo '</script>'; 
+           $err = 1;     
+       }
+
        $sql_view = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN monhoc ON diem.MaMonHoc = monhoc.MaMonHoc JOIN lophoc ON hocsinh.MaLopHoc = lophoc.MaLopHoc JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS LIKE '$endKeyWord'";
-       $query_view = mysqli_query($conn,$sql);
+       $query_view = mysqli_query($conn,$sql_view);
        $row_view = mysqli_fetch_assoc($query_view);
      }else{
         $id_hs = '';
@@ -115,15 +122,20 @@
         <tfoot>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ I</th>
-                <th colspan="2"><?php echo round($tb_hk/$i,1); ?></th>
+                <th colspan="2"><?php if(!isset($err)){if(isset($tb_hk)){echo round($tb_hk/$i,1);}else{echo '---';}}else{echo '---';} ?></th>
             </tr>
             <tr>
                 <th colspan="9">Điểm Trung Bình Học Kỳ II</th>
-                <th colspan="2">8.0</th>
+                <th colspan="2"><?php if(isset($tb_hk2)){echo round($tb_hk2/$i,1);}else{echo '---';} ?></th>
             </tr>
             <tr>
+                <?php 
+                    if (isset($tb_hk) && isset($tb_hk2)) {
+                        $dtb = round(($tb_hk+$tb_hk2*2)/3,1); 
+                    }
+                ?>
                 <th colspan="9">Điểm Trung Bình Năm Học</th>
-                <th colspan="2">8.0</th>
+                <th colspan="2"><?php if(isset($dtb)){echo $dtb;}else{echo '---';} ?></th>
             </tr>
         </tfoot>
     </table>
