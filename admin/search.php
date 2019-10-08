@@ -10,7 +10,7 @@
        //chuyển mảng thành xâu
        $endKeyWord = '%'.implode('%',$arrKeyWord).'%';
    
-       $sql = "SELECT * FROM hocsinh WHERE MaHS LIKE '$endKeyWord'";
+       $sql = "SELECT * FROM hocsinh WHERE MaHS LIKE '$endKeyWord' OR TenHS LIKE '$endKeyWord'";
        $query = mysqli_query($conn,$sql);
 
      }else{
