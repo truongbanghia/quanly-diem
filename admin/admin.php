@@ -48,6 +48,9 @@
 								<li><a href="#"><svg class="glyph stroked male-user">
 											<use xlink:href="#stroked-male-user"></use>
 										</svg> Hồ sơ</a></li>
+								<li><a href="index.php?page=change_pass"><svg class="glyph stroked key ">
+									<use xlink:href="#stroked-key"/>
+										</svg>Thay đổi mật khẩu</a></li>
 								<li><a href="logout.php"><svg class="glyph stroked cancel">
 											<use xlink:href="#stroked-cancel"></use>
 										</svg> Đăng xuất</a></li>
@@ -152,6 +155,9 @@
 						break;
 					case 'add_mon_gv':
 						include_once('add_mon_gv.php');
+						break;
+					case 'change_pass':
+						include_once('change_pass.php');
 						break;
 					default:
 						include_once('statistic.php');
