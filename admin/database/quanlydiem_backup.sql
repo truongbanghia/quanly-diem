@@ -64,18 +64,18 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("55","20191","A","210001","1","7","7","6","6","6","9","7.1");
-INSERT INTO diem VALUES("56","20191","A","210002","1","4","5.5","7.5","8","9.5","10","8.2");
-INSERT INTO diem VALUES("57","20191","A","210005","1","8","7.5","4.5","6","7","8","7");
-INSERT INTO diem VALUES("58","20191","A","210003","2","8","9","5","5","6","8","6.8");
-INSERT INTO diem VALUES("59","20191","A","210004","2","8","9","6","7","10","10","8.7");
-INSERT INTO diem VALUES("60","20191","Ti","210001","1","7","7","6","6","6","8","6.8");
-INSERT INTO diem VALUES("61","20191","Ti","210002","1","8","9","10","5","7.5","8","7.6");
-INSERT INTO diem VALUES("62","20191","Ti","210005","1","4","5","6","7","8","9","7.2");
-INSERT INTO diem VALUES("63","20191","Ti","210007","1","1","2","3","4","5","6","4.2");
-INSERT INTO diem VALUES("64","20191","Ti","210006","3","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("55","20191","A","210001","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("56","20191","A","210002","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("57","20191","A","210005","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("58","20191","A","210003","2","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("59","20191","A","210004","2","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("60","20191","Ti","210001","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("61","20191","Ti","210002","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("62","20191","Ti","210005","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("63","20191","Ti","210007","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("64","20191","Ti","210006","3","4","5","6","7","8","9","7.2");
 
 
 
