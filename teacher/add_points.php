@@ -6,7 +6,7 @@
 	$id_hocky = $_GET['MaHocKy'];
 	$id_monhoc = $_GET['MaMonHoc'];
 	$id_lophoc = $_GET['MaLopHoc'];
-
+	
 	if (isset($_POST['sbm'])) {
 		$sql_hs = "SELECT * FROM hocsinh WHERE MaLopHoc = '$id_lophoc'";
 		$query_hs = mysqli_query($conn,$sql_hs);													
@@ -23,7 +23,7 @@
 			$query_diem = mysqli_query($conn,$sql_diem);
 			if (mysqli_num_rows($query_diem) != "") {
 				$diemTB = round(($diemMieng+$diem_15p1+$diem_15p2+$diem_1tiet1*2+$diem_1tiet2*2+$diem_thi*3)/10,1);	
-				$sql_points = "UPDATE diem SET DiemMieng = '$diemMieng', Diem15Phut1 = '$diem_15p1', Diem15Phut2 = '$diem_15p2', Diem1Tiet1 = '$diem_1tiet1', Diem1Tiet2 = '$diem_1tiet2', DiemThi = '$diem_thi', DiemTB = '$diemTB' WHERE MaHS = '$maHS'";
+				$sql_points = "UPDATE diem SET DiemMieng = '$diemMieng', Diem15Phut1 = '$diem_15p1', Diem15Phut2 = '$diem_15p2', Diem1Tiet1 = '$diem_1tiet1', Diem1Tiet2 = '$diem_1tiet2', DiemThi = '$diem_thi', DiemTB = '$diemTB' WHERE MaHS = '$maHS' AND MaMonHoc = '$id_monhoc' AND MaHocKy = '$id_hocky'";
 				$query_points = mysqli_query($conn,$sql_points);						
 				header('location: index.php?page_gv=add_points&MaHocKy='.$id_hocky.'&MaMonHoc='.$id_monhoc.'&MaLopHoc='.$id_lophoc.'');
 			}else {
@@ -85,24 +85,26 @@
 										<?php 
 											$sql_hs = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS WHERE hocsinh.MaLopHoc = '$id_lophoc' AND diem.MaMonHoc = '$id_monhoc'";
 											$query_hs = mysqli_query($conn,$sql_hs);
+
+											$sql_view = "SELECT * FROM hocsinh WHERE MaLopHoc = '$id_lophoc' ";
+											$query_view = mysqli_query($conn,$sql_view);											
 										?>
                                     <form method="POST" role="form">
 										<?php																						
-											for($i=1;$i<=($row_hs=mysqli_fetch_assoc($query_hs));$i++) {																				
+											for($i=1;$i<=$row_hs=mysqli_fetch_assoc($query_hs);$i++) {																				
 										?>
 										<tr>
 											<td><input type="text" name="MaHS<?php echo $i ?>" value="<?php echo $row_hs['MaHS'] ?>" hidden><?php echo $row_hs['MaHS'] ?></td>
                                             <td><?php echo $row_hs['TenHS'] ?></td>
-                                            <td><?php echo $id_hocky ?></td>                                            
+											<td><?php echo $id_hocky ?></td> 											                                         
                                             <td><input style="width:90px" <?php if(!empty($row_hs['DiemMieng'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_mieng<?php echo $i ?>" value="<?php echo $row_hs['DiemMieng'] ?>"></td>
                                             <td><input style="width:90px" <?php if(!empty($row_hs['Diem15Phut1'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_15p1<?php echo $i ?>" value="<?php echo $row_hs['Diem15Phut1'] ?>"></td>
                                             <td><input style="width:90px" <?php if(!empty($row_hs['Diem15Phut2'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_15p2<?php echo $i ?>" value="<?php echo $row_hs['Diem15Phut2'] ?>"></td>
                                             <td><input style="width:90px" <?php if(!empty($row_hs['Diem1Tiet1'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_1tiet1<?php echo $i ?>" value="<?php echo $row_hs['Diem1Tiet1'] ?>"></td>
                                             <td><input style="width:90px" <?php if(!empty($row_hs['Diem1Tiet2'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_1tiet2<?php echo $i ?>" value="<?php echo $row_hs['Diem1Tiet2'] ?>"></td>
-                                            <td><input style="width:90px" <?php if(!empty($row_hs['DiemThi'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_thi<?php echo $i ?>" value="<?php echo $row_hs['DiemThi'] ?>"></td>                                                                                                                                          
+											<td><input style="width:90px" <?php if(!empty($row_hs['DiemThi'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_thi<?php echo $i ?>" value="<?php echo $row_hs['DiemThi'] ?>"></td>											                                                                                                                                         
 										</tr>
-											<?php } ?>	                                        
-										
+											<?php } ?>	                                        										
 										<button type="submit" name="sbm" class="btn btn-primary">Chấp Nhận</button>
                                     </form>									
 									</tbody>

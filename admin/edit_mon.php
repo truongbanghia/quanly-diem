@@ -12,10 +12,7 @@
     if (isset($_POST['sbm'])) {
         $maGV = $_POST['maGV'];
         $maHK = $_POST['maHK'];
-        $details = $_POST['details'];
-
-        $sql_dayHoc = "SELECT * FROM dayhoc WHERE MaMonHoc = '$id_mon' AND MaLopHoc = '$id_class'";
-        $query_dayHoc = mysqli_query($conn,$sql_dayHoc);
+        $details = $_POST['details'];        
 
         if (mysqli_num_rows($query_dayHoc) != "") {
             

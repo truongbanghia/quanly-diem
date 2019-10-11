@@ -16,27 +16,32 @@ CREATE TABLE `dayhoc` (
   CONSTRAINT `fk_day_hocky` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_day_lophoc` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`),
   CONSTRAINT `fk_day_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO dayhoc VALUES("1","A","4","2","20191","DEC");
-INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ádsad");
+INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ABC");
 INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Tin");
 INSERT INTO dayhoc VALUES("4","CN","5","2","20191","abc");
 INSERT INTO dayhoc VALUES("5","H","6","1","20191","ád");
-INSERT INTO dayhoc VALUES("6","S","7","1","20191","ád");
-INSERT INTO dayhoc VALUES("7","T","9","1","20191","Giáo sư");
+INSERT INTO dayhoc VALUES("7","T","9","1","20191","A");
 INSERT INTO dayhoc VALUES("8","V","8","1","20191","abc");
 INSERT INTO dayhoc VALUES("14","A","4","1","20191","ABC");
 INSERT INTO dayhoc VALUES("16","H","6","2","20191","1");
-INSERT INTO dayhoc VALUES("17","A","1","3","20191","1");
+INSERT INTO dayhoc VALUES("17","A","4","3","20191","1");
 INSERT INTO dayhoc VALUES("18","CN","5","3","20191","1");
 INSERT INTO dayhoc VALUES("19","GD","2","3","20191","1");
 INSERT INTO dayhoc VALUES("20","H","6","3","20191","3");
-INSERT INTO dayhoc VALUES("21","S","7","3","20191","1");
 INSERT INTO dayhoc VALUES("22","S","7","3","20191","1");
 INSERT INTO dayhoc VALUES("23","T","9","3","20191","2");
 INSERT INTO dayhoc VALUES("24","Ti","3","3","20191","1");
 INSERT INTO dayhoc VALUES("25","V","8","3","20191","1");
+INSERT INTO dayhoc VALUES("27","CN","5","1","20191","1234");
+INSERT INTO dayhoc VALUES("28","S","7","1","20191","1234");
+INSERT INTO dayhoc VALUES("29","V","8","2","20191","1");
+INSERT INTO dayhoc VALUES("30","Ti","3","2","20191","");
+INSERT INTO dayhoc VALUES("31","S","7","2","20191","");
+INSERT INTO dayhoc VALUES("32","GD","2","2","20191","");
+INSERT INTO dayhoc VALUES("33","T","9","2","20191","");
 
 
 
@@ -64,18 +69,65 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("55","20191","A","210001","1","8","8","6","3","9","5","6.1");
-INSERT INTO diem VALUES("56","20191","A","210002","1","","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("57","20191","A","210005","1","","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("58","20191","A","210003","2","5","7","6","10","9","6","7.4");
-INSERT INTO diem VALUES("59","20191","A","210004","2","7","8","9","5","9","5","6.7");
-INSERT INTO diem VALUES("60","20191","Ti","210001","1","5","7","6","5","9","9","7.3");
-INSERT INTO diem VALUES("61","20191","Ti","210002","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("62","20191","Ti","210005","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("63","20191","Ti","210007","1","9","9","6","5","5","5","5.9");
-INSERT INTO diem VALUES("64","20191","Ti","210006","3","4","5","6","7","8","9","7.2");
+INSERT INTO diem VALUES("81","20191","A","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("82","20191","A","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("83","20191","A","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("84","20191","A","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("85","20191","CN","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("86","20191","CN","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("87","20191","CN","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("88","20191","CN","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("89","20191","GD","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("90","20191","GD","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("91","20191","GD","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("92","20191","GD","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("93","20191","H","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("94","20191","H","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("95","20191","H","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("96","20191","H","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("97","20191","S","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("98","20191","S","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("99","20191","S","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("100","20191","S","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("101","20191","T","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("102","20191","T","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("103","20191","T","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("104","20191","T","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("105","20191","Ti","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("106","20191","Ti","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("107","20191","Ti","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("108","20191","Ti","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("109","20191","V","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("110","20191","V","210002","1","","","","","","","0");
+INSERT INTO diem VALUES("111","20191","V","210005","1","","","","","","","0");
+INSERT INTO diem VALUES("112","20191","V","210007","1","","","","","","","0");
+INSERT INTO diem VALUES("113","20191","A","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("114","20191","A","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("115","20191","CN","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("116","20191","CN","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("117","20191","GD","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("118","20191","GD","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("119","20191","H","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("120","20191","H","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("121","20191","S","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("122","20191","S","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("123","20191","T","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("124","20191","T","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("125","20191","Ti","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("126","20191","Ti","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("127","20191","V","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("128","20191","V","210004","2","","","","","","","0");
+INSERT INTO diem VALUES("129","20191","A","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("130","20191","CN","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("131","20191","GD","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("132","20191","H","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("133","20191","S","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("134","20191","S","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("135","20191","T","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("136","20191","Ti","210006","3","","","","","","","0");
+INSERT INTO diem VALUES("137","20191","V","210006","3","","","","","","","0");
 
 
 
