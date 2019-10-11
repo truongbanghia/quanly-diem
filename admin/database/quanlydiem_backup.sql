@@ -66,15 +66,15 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("55","20191","A","210001","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("56","20191","A","210002","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("57","20191","A","210005","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("58","20191","A","210003","2","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("59","20191","A","210004","2","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("60","20191","Ti","210001","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("55","20191","A","210001","1","8","8","6","3","9","5","6.1");
+INSERT INTO diem VALUES("56","20191","A","210002","1","","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("57","20191","A","210005","1","","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("58","20191","A","210003","2","5","7","6","10","9","6","7.4");
+INSERT INTO diem VALUES("59","20191","A","210004","2","7","8","9","5","9","5","6.7");
+INSERT INTO diem VALUES("60","20191","Ti","210001","1","5","7","6","5","9","9","7.3");
 INSERT INTO diem VALUES("61","20191","Ti","210002","1","5","7","6","5","9","7.5","6.9");
 INSERT INTO diem VALUES("62","20191","Ti","210005","1","5","7","6","5","9","7.5","6.9");
-INSERT INTO diem VALUES("63","20191","Ti","210007","1","5","7","6","5","9","7.5","6.9");
+INSERT INTO diem VALUES("63","20191","Ti","210007","1","9","9","6","5","5","5","5.9");
 INSERT INTO diem VALUES("64","20191","Ti","210006","3","4","5","6","7","8","9","7.2");
 
 
