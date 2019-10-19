@@ -18,16 +18,16 @@ CREATE TABLE `dayhoc` (
   CONSTRAINT `fk_day_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO dayhoc VALUES("1","A","4","2","20191","DEC");
+INSERT INTO dayhoc VALUES("1","A","1","2","20191","DEC");
 INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ABC");
 INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Tin");
 INSERT INTO dayhoc VALUES("4","CN","5","2","20191","abc");
 INSERT INTO dayhoc VALUES("5","H","6","1","20191","ád");
 INSERT INTO dayhoc VALUES("7","T","9","1","20191","A");
 INSERT INTO dayhoc VALUES("8","V","8","1","20191","abc");
-INSERT INTO dayhoc VALUES("14","A","4","1","20191","ABC");
+INSERT INTO dayhoc VALUES("14","A","1","1","20191","ABC");
 INSERT INTO dayhoc VALUES("16","H","6","2","20191","1");
-INSERT INTO dayhoc VALUES("17","A","4","3","20191","1");
+INSERT INTO dayhoc VALUES("17","A","1","3","20191","1");
 INSERT INTO dayhoc VALUES("18","CN","5","3","20191","1");
 INSERT INTO dayhoc VALUES("19","GD","2","3","20191","1");
 INSERT INTO dayhoc VALUES("20","H","6","3","20191","3");
@@ -69,7 +69,7 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO diem VALUES("81","20191","A","210001","1","","","","","","","0");
 INSERT INTO diem VALUES("82","20191","A","210002","1","","","","","","","0");
@@ -91,11 +91,11 @@ INSERT INTO diem VALUES("97","20191","S","210001","1","","","","","","","0");
 INSERT INTO diem VALUES("98","20191","S","210002","1","","","","","","","0");
 INSERT INTO diem VALUES("99","20191","S","210005","1","","","","","","","0");
 INSERT INTO diem VALUES("100","20191","S","210007","1","","","","","","","0");
-INSERT INTO diem VALUES("101","20191","T","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("101","20191","T","210001","1","10","9","8","9","10","10","9.5");
 INSERT INTO diem VALUES("102","20191","T","210002","1","","","","","","","0");
 INSERT INTO diem VALUES("103","20191","T","210005","1","","","","","","","0");
 INSERT INTO diem VALUES("104","20191","T","210007","1","","","","","","","0");
-INSERT INTO diem VALUES("105","20191","Ti","210001","1","","","","","","","0");
+INSERT INTO diem VALUES("105","20191","Ti","210001","1","10","8","9","8.5","9","7.5","8.5");
 INSERT INTO diem VALUES("106","20191","Ti","210002","1","","","","","","","0");
 INSERT INTO diem VALUES("107","20191","Ti","210005","1","","","","","","","0");
 INSERT INTO diem VALUES("108","20191","Ti","210007","1","","","","","","","0");
@@ -115,7 +115,7 @@ INSERT INTO diem VALUES("121","20191","S","210003","2","","","","","","","0");
 INSERT INTO diem VALUES("122","20191","S","210004","2","","","","","","","0");
 INSERT INTO diem VALUES("123","20191","T","210003","2","","","","","","","0");
 INSERT INTO diem VALUES("124","20191","T","210004","2","","","","","","","0");
-INSERT INTO diem VALUES("125","20191","Ti","210003","2","","","","","","","0");
+INSERT INTO diem VALUES("125","20191","Ti","210003","2","10","","","","","","1");
 INSERT INTO diem VALUES("126","20191","Ti","210004","2","","","","","","","0");
 INSERT INTO diem VALUES("127","20191","V","210003","2","","","","","","","0");
 INSERT INTO diem VALUES("128","20191","V","210004","2","","","","","","","0");
@@ -198,6 +198,7 @@ INSERT INTO hocsinh VALUES("210004","2","Trương Bá Nghĩa","Nam","1997-04-11"
 INSERT INTO hocsinh VALUES("210005","1","Nguyễn Văn A","Nam","1997-04-11","Hà Nội","Kinh","Nguyễn","Nguyễn");
 INSERT INTO hocsinh VALUES("210006","3","Chu Thị Trúc","Nữ","1997-06-11","Hà Nội","Kinh","Chu","Nguyễn");
 INSERT INTO hocsinh VALUES("210007","1","Trương Bá Quang","Nam","1997-11-09","Nam","Kinh","Trương","Nguyễn");
+INSERT INTO hocsinh VALUES("210008","1","Lê Đức Tiến","Nam","1997-06-11","Hà Nội","Kinh","Lê","Nguyễn");
 
 
 

@@ -20,6 +20,14 @@
 
         $sql_add = "INSERT INTO hocsinh (MaHS, MaLopHoc, TenHS, GioiTinh, NgaySinh, NoiSinh, DanToc, HoTenCha, HoTenMe) VALUES ('$stu_id',$class_id,'$stu_name','$stu_sex','$stu_birth','$stu_place_birth','$stu_nation','$stu_name_dad','$stu_name_mother')";
         $result = mysqli_query($conn,$sql_add);
+
+        $sql_mon = "SELECT MaMonHoc FROM monhoc";
+        $query_mon=mysqli_query($conn,$sql_mon);
+        while ($row_mon = mysqli_fetch_assoc($query_mon)) {
+            $id_mon = $row_mon['MaMonHoc'];
+            $sql_add_diem="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20191','$id_mon','$stu_id','$class_id')";
+            $query_add_diem = mysqli_query($conn,$sql_add_diem);
+        }
         header('location: index.php?page=list_stu&id_class='.$class_id.'');
     }
 ?>
