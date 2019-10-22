@@ -83,7 +83,7 @@
 									</thead>
 									<tbody>
 										<?php 
-											$sql_hs = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS WHERE hocsinh.MaLopHoc = '$id_lophoc' AND diem.MaMonHoc = '$id_monhoc'";
+											$sql_hs = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS WHERE hocsinh.MaLopHoc = '$id_lophoc' AND diem.MaMonHoc = '$id_monhoc' AND diem.MaHocKy = '$id_hocky'";
 											$query_hs = mysqli_query($conn,$sql_hs);
 
 											$sql_view = "SELECT * FROM hocsinh WHERE MaLopHoc = '$id_lophoc' ";

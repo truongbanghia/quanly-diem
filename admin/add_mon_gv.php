@@ -16,17 +16,17 @@
         $sql_day = "SELECT * FROM dayhoc WHERE MaMonHoc = '$id_mon' AND MaLopHoc = '$id_class'";
         $query_day = mysqli_query($conn,$sql_day);
 
-        $sql_diem = "SELECT * FROM diem WHERE MaMonHoc = '$id_mon' AND MaLopHoc = '$id_class'";
-        $query_diem = mysqli_query($conn,$sql_diem);
-        if (mysqli_num_rows($query_diem) == "") {
-            $sql_dayHoc = "SELECT * FROM dayhoc JOIN hocsinh ON dayhoc.MaLopHoc = hocsinh.MaLopHoc  WHERE dayhoc.MaHocKy = '$maHK' AND dayhoc.MaMonHoc = '$id_mon' AND dayhoc.MaLopHoc = '$id_class'";
-            $query_dayHoc = mysqli_query($conn,$sql_dayHoc);
-            while($row_dayHoc = mysqli_fetch_assoc($query_dayHoc)){
-                $id_hs = $row_dayHoc['MaHS'] ;
-                $sql_add_diem = "INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES ('$maHK','$id_mon','$id_hs','$id_class')";
-                $query_add_diem = mysqli_query($conn,$sql_add_diem);
-            }
-        }
+        // $sql_diem = "SELECT * FROM diem WHERE MaMonHoc = '$id_mon' AND MaLopHoc = '$id_class'";
+        // $query_diem = mysqli_query($conn,$sql_diem);
+        // if (mysqli_num_rows($query_diem) == "") {
+        //     $sql_dayHoc = "SELECT * FROM dayhoc JOIN hocsinh ON dayhoc.MaLopHoc = hocsinh.MaLopHoc  WHERE dayhoc.MaHocKy = '$maHK' AND dayhoc.MaMonHoc = '$id_mon' AND dayhoc.MaLopHoc = '$id_class'";
+        //     $query_dayHoc = mysqli_query($conn,$sql_dayHoc);
+        //     while($row_dayHoc = mysqli_fetch_assoc($query_dayHoc)){
+        //         $id_hs = $row_dayHoc['MaHS'] ;
+        //         $sql_add_diem = "INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES ('20192','$id_mon','$id_hs','$id_class')";
+        //         $query_add_diem = mysqli_query($conn,$sql_add_diem);
+        //     }
+        // }
 
         if (mysqli_num_rows($query_day) == "") {            
             $sql_add = "INSERT INTO dayhoc(MaMonHoc, MaGV, MaLopHoc, MaHocKy, MoTaPhanCong) VALUES('$id_mon','$maGV','$id_class','$maHK','$details')";

@@ -4,6 +4,7 @@
     }
     $stu_id = $_GET['id_hs'];
     $id_mon = $_GET['id_mon'];
+    $id_hk = $_GET['MaHocKy'];
 
     $sql_view = "SELECT * FROM hocsinh JOIN diem ON hocsinh.MaHS = diem.MaHS JOIN hocky ON diem.MaHocKy = hocky.MaHocKy WHERE hocsinh.MaHS = '$stu_id' AND diem.MaMonHoc = '$id_mon'";
     $query_view = mysqli_query($conn,$sql_view);
@@ -18,7 +19,7 @@
 
         $diemTBMon = round(($DiemMieng+$Diem15Phut1+$Diem15Phut2+$Diem1Tiet1*2+$Diem1Tiet2*2+ $DiemThi*3)/10,1);
         
-        $query_update = mysqli_query($conn,"UPDATE diem SET DiemMieng = '$DiemMieng', Diem15Phut1 = '$Diem15Phut1', Diem15Phut2 = '$Diem15Phut2', Diem1Tiet1 = '$Diem1Tiet1', Diem1Tiet2 = '$Diem1Tiet2', DiemThi = '$DiemThi', DiemTB = '$diemTBMon' WHERE MaHS = '$stu_id' AND MaMonHoc = '$id_mon'");
+        $query_update = mysqli_query($conn,"UPDATE diem SET DiemMieng = '$DiemMieng', Diem15Phut1 = '$Diem15Phut1', Diem15Phut2 = '$Diem15Phut2', Diem1Tiet1 = '$Diem1Tiet1', Diem1Tiet2 = '$Diem1Tiet2', DiemThi = '$DiemThi', DiemTB = '$diemTBMon' WHERE MaHS = '$stu_id' AND MaMonHoc = '$id_mon' AND MaHocKy = '$id_hk'");
 
         header('location: index.php?page=edit_diem&id_hs='.$stu_id.'');
     }

@@ -51,23 +51,25 @@
                                         $query_diem = mysqli_query($conn,$sql_diem);
                                         $tb_hk = 0;
                                         $tb_hk2 = 0;
-                                        $i = 0;
+                                        $i=0;
+                                        $j=0;
                                         while($row_diem = mysqli_fetch_assoc($query_diem)){
                                             if ($row_diem['MaHocKy']=='20191') {
                                                 $tb_hk += $row_diem['DiemTB'];
                                                 $i++; 
                                             }elseif($row_diem['MaHocKy']=='20192') {
                                                 $tb_hk2 += $row_diem['DiemTB'];
-                                                $i++; 
+                                                $j++; 
                                             }   
-                                        }                                                    
+                                        }
+                                                                                          
                                 ?>                               
                                 <tr>
-                                    <td><?php echo $row['MaHS']; ?></td>
+                                    <td><?php echo $row['MaHS'];?></td>
                                     <td><?php echo $row['TenHS']; ?></td>
-                                    <td><?php if(isset($tb_hk)){echo round($tb_hk/$i,1);}else{echo '---';}?></td>
-                                    <td><?php if(isset($tb_hk2)){echo round($tb_hk2/$i,1);}else{echo '---';} ?></td>
-                                    <td>8.5</td>
+                                    <td><?php if(isset($tb_hk)){echo $a = round($tb_hk/$i,1);}else{echo '---';}?></td>
+                                    <td><?php if(isset($tb_hk2)){echo $b = round($tb_hk2/$j,1);}else{echo '---';} ?></td>
+                                    <td><?php echo round($dtb_nam = ($a+$b*2)/3,1) ?></td>
                                     
                                     <td class="form-group">
                                         <a href="index.php?page=edit_diem&id_hs=<?php echo $row['MaHS']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>

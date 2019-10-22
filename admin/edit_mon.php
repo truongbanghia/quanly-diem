@@ -13,14 +13,13 @@
         $maGV = $_POST['maGV'];
         $maHK = $_POST['maHK'];
         $details = $_POST['details'];        
-
-        if (mysqli_num_rows($query_dayHoc) != "") {
+        
             
             $sql_update = "UPDATE dayhoc SET MaMonHoc = '$id_mon', MaGV = '$maGV', MaLopHoc = '$id_class', MaHocKy = '$maHK', MoTaPhanCong = '$details' WHERE MaMonHoc = '$id_mon' AND MaLopHoc = '$id_class'";
             $query_update = mysqli_query($conn,$sql_update);
 
             header('location: index.php?page=list_mon&id_class='.$id_class.'');
-        }
+        
     }
 ?>
 

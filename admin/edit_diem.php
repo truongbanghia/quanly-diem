@@ -18,7 +18,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Bảng điểm học sinh: Trương Bá </h1>
+				<h1 class="page-header">Bảng điểm học sinh: <?php echo $stu_id ?></h1>
 			</div>
 		</div><!--/.row-->
 		<div class="row">
@@ -44,7 +44,10 @@
 						    </tr>
                             </thead>
                             <tbody> 
-                               
+                            <!-- <?php
+                                        $diemTBMon = round(($row_view['DiemMieng']+$row_view['Diem15Phut1']+$row_view['Diem15Phut2']+$row_view['Diem1Tiet1']*2+$row_view['Diem1Tiet2']*2+$row_view['DiemThi']*3)/10,1);
+                                        $query_insert = mysqli_query($conn,"INSERT INTO diem(DiemTB) VALUES($diemTBMon) WHERE MaMonHoc = '{$row_view['MaMonHoc']}' AND MaHS = '$stu_id");
+                                    ?> -->
                                 <?php
                                     while($row_view = mysqli_fetch_assoc($query_view)){                                  
                                 ?>                               
@@ -59,15 +62,11 @@
                                     <td ><?php echo $row_view['Diem15Phut2']; ?></td>
                                     <td><?php echo $row_view['Diem1Tiet1']; ?></td>
                                     <td><?php echo $row_view['Diem1Tiet2']; ?></td>
-                                    <td><?php echo $row_view['DiemThi']; ?></td> 
-                                    <?php
-                                        $diemTBMon = round(($row_view['DiemMieng']+$row_view['Diem15Phut1']+$row_view['Diem15Phut2']+$row_view['Diem1Tiet1']*2+$row_view['Diem1Tiet2']*2+$row_view['DiemThi']*3)/10,1);
-                                        $query_insert = mysqli_query($conn,"INSERT INTO diem(DiemTB) VALUES($diemTBMon) WHERE MaMonHoc = '{$row_view['MaMonHoc']}' AND MaHS = '$stu_id");
-                                    ?>                      
-                                    <td><?php echo $diemTBMon; ?></td>
+                                    <td><?php echo $row_view['DiemThi']; ?></td>                                                    
+                                    <td><?php echo $row_view['DiemTB']; ?></td>
                                     <td><?php echo $row_view['NamHoc']; ?></td>
                                     <td class="form-group">
-                                        <a href="index.php?page=edit_diem_hs&id_hs=<?php echo $row_view['MaHS']; ?>&id_mon=<?php echo $row_view['MaMonHoc']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a href="index.php?page=edit_diem_hs&id_hs=<?php echo $row_view['MaHS']; ?>&id_mon=<?php echo $row_view['MaMonHoc']; ?>&MaHocKy=<?php echo $row_view['MaHocKy']; ?>" class="btn btn-primary <?php if(empty($row_view['DiemTB'])){ echo 'disabled';} ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                                     </td>     
                                     </form>                                      
                                 </tr> 

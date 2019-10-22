@@ -27,6 +27,9 @@
             $id_mon = $row_mon['MaMonHoc'];
             $sql_add_diem="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20191','$id_mon','$stu_id','$class_id')";
             $query_add_diem = mysqli_query($conn,$sql_add_diem);
+
+            $sql_add_diem_2="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20192','$id_mon','$stu_id','$class_id')";
+            $query_add_diem_2 = mysqli_query($conn,$sql_add_diem_2);
         }
         header('location: index.php?page=list_stu&id_class='.$class_id.'');
     }
