@@ -20,11 +20,21 @@ if(isset($_POST['btnExport'])){
         $sql = "SELECT * FROM hocsinh WHERE MaLopHoc = $lophoc[MaLopHoc]";
         $result = mysqli_query($conn,$sql);
         $numRow = 1;
-        $objPHPExcel->getActiveSheet()->setCellValue('A'.$numRow.'', 'Mã Học Sinh');
-        $objPHPExcel->getActiveSheet()->setCellValue('B'.$numRow.'', 'Tên Học Sinh');
-        $objPHPExcel->getActiveSheet()->setCellValue('C'.$numRow.'', 'Giới Tính');
-        $objPHPExcel->getActiveSheet()->setCellValue('D'.$numRow.'', 'Ngày Sinh');
-
+        $objPHPExcel->getActiveSheet()->setCellValue('A'.$numRow.'', 'Mã Học Sinh')->getColumnDimension('A')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->setCellValue('B'.$numRow.'', 'Tên Học Sinh')->getColumnDimension('B')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->setCellValue('C'.$numRow.'', 'Giới Tính')->getColumnDimension('C')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->setCellValue('D'.$numRow.'', 'Ngày Sinh')->getColumnDimension('D')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:D1')->getFont()->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:D1')->applyFromArray(
+            array(
+             'fill' => array(
+             'type' => PHPExcel_Style_Fill::FILL_SOLID,
+             'color' => array('rgb' => 'c6f2c8')
+             ),
+            )
+          ); //Đổ màu cho ô
+          $objPHPExcel->getActiveSheet()->getPageSetup()->setFitToWidth(1);
+          $objPHPExcel->getActiveSheet()->getStyle('A1:J100')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); //Canh chữ ở giữa
         while ($row = mysqli_fetch_assoc($result)) {
             $numRow++;
             $objPHPExcel->getActiveSheet()->setCellValue('A'.$numRow.'', ''.$row['MaHS'].'');

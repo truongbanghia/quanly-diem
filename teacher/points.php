@@ -22,10 +22,11 @@
 
 		<div class="row">
 			<div class="col-md-12">
-			<form method="post" action="../teacher/excel_gv.php">
+			<form method="post" action="../teacher/excel_gv.php" style="margin: 10px;">
 					<input type="hidden" name="mail" value="<?php echo $gv_mail ?>">
                     <button type="submit" name="btnExport" class="btn btn-info">Xuất Danh Sách Lớp Ra Excel</button>                                     
 			</form>
+			
 			<br>
 					<div class="panel panel-default">
 							<div class="panel-body">

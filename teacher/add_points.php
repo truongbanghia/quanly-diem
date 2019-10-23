@@ -105,8 +105,21 @@
 											<td><input style="width:90px" <?php if(!empty($row_hs['DiemThi'])){ echo 'readonly';} ?> type="text" maxlength="3" name="diem_thi<?php echo $i ?>" value="<?php echo $row_hs['DiemThi'] ?>"></td>											                                                                                                                                         
 										</tr>
 											<?php } ?>	                                        										
-										<button type="submit" name="sbm" class="btn btn-primary">Chấp Nhận</button>
-                                    </form>									
+										<button type="submit" name="sbm" class="btn btn-primary">Chấp Nhận</button>											
+									</form>	
+									<?php
+										$sql_hidden = "SELECT * FROM lophoc WHERE MaLopHoc = '$id_lophoc' ";
+										$query_hidden = mysqli_query($conn,$sql_hidden);
+										$row_hidden = mysqli_fetch_assoc($query_hidden);
+									?>	
+									<form method="post" action="../teacher/excel_gv_nhap.php" enctype="multipart/form-data">
+													<input type="hidden" name="ten_lop" value="<?php echo $row_hidden['Tenlophoc'] ?>">
+													<input type="hidden" name="id_lop" value="<?php echo $row_hidden['MaLopHoc'] ?>">
+													<input type="hidden" name="id_hk" value="<?php echo $id_hocky ?>">
+													<input type="hidden" name="id_monhoc" value="<?php echo $id_monhoc ?>">
+													<input type="file" name="file">
+													<button type="submit" name="btnImport" class="btn btn-success">Chấp Nhận</button>                                     
+											</form>							
 									</tbody>
 								</table>
 							</div>
