@@ -30,7 +30,10 @@
 
             $sql_add_diem_2="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20192','$id_mon','$stu_id','$class_id')";
             $query_add_diem_2 = mysqli_query($conn,$sql_add_diem_2);
+
+            
         }
+        $query_thongke = mysqli_query($conn,"INSERT INTO thongke(MaHS,MaLopHoc,NamHoc) VALUES('$stu_id','$class_id','19-20')");
         header('location: index.php?page=list_stu&id_class='.$class_id.'');
     }
 ?>

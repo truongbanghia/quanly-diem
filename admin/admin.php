@@ -65,9 +65,7 @@
 		<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 			<?php include_once('search_box.php'); ?>
 			<ul class="nav menu">
-				<li class="active"><a href="index.php"><svg class="glyph stroked dashboard-dial">
-							<use xlink:href="#stroked-dashboard-dial"></use>
-						</svg> Dashboard</a></li>
+				<li><a href="index.php"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
 				<li><a href="index.php?page=user"><svg class="glyph stroked male user ">
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
 				<li><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
@@ -78,7 +76,7 @@
                             <use xlink:href="#stroked-male-user" /></svg>Quản lý Học Sinh</a></li>
 				<li><a href="index.php?page=diem"><svg class="glyph stroked open folder">
 							<use xlink:href="#stroked-open-folder" /></svg>Quản lý Điểm</a></li>
-				<li><a href="#"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
+				
 				
 			</ul>
 

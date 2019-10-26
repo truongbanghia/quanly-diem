@@ -37,7 +37,7 @@ if (!defined('TEMPLATE')) {
 						        <th data-field="id" data-sortable="true">ID</th>
 						        <th data-field="name"  data-sortable="true">Khối</th>
                                 <th data-field="price" data-sortable="true">Tên Lớp</th>
-                                <th>Xem Điểm</th>                            
+                                <th>Xem Điểm -  Cập Nhật Điểm</th>                            
 						    </tr>
                             </thead>
                             <tbody>

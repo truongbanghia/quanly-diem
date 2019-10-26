@@ -69,8 +69,10 @@
                                     <td><?php echo $row['TenHS']; ?></td>
                                     <td><?php if(isset($tb_hk)){echo $a = round($tb_hk/$i,1);}else{echo '---';}?></td>
                                     <td><?php if(isset($tb_hk2)){echo $b = round($tb_hk2/$j,1);}else{echo '---';} ?></td>
-                                    <td><?php echo round($dtb_nam = ($a+$b*2)/3,1) ?></td>
-                                    
+                                    <td><?php echo $tb_nam = round($dtb_nam = ($a+$b*2)/3,1) ?></td>
+                                    <?php
+                                        $query_thongke = mysqli_query($conn,"UPDATE thongke SET tbNamHoc = $tb_nam WHERE MaHS = '{$row['MaHS']}'");
+                                    ?>
                                     <td class="form-group">
                                         <a href="index.php?page=edit_diem&id_hs=<?php echo $row['MaHS']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
                                     </td>                                    
