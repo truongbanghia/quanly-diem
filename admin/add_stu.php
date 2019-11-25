@@ -99,9 +99,8 @@
                                 <button type="reset" class="btn btn-default">Làm mới</button>
                                 
                         </form>
-                        <form method="POST" enctype="multipart/form-data">
+                        <form  method="POST" enctype="multipart/form-data">
                             <input type="file" name="file">
-                            
                         </form>
                         </div>
                     </div>
