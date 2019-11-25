@@ -66,10 +66,10 @@
 				</div>
 			</form>
 			<ul class="nav menu">
-				<li class="active"><a href="index.php"><svg class="glyph stroked dashboard-dial">
+				<li class="<?php if($_GET['page_gv'] == ""){ echo "active";} ?>"><a href="index.php"><svg class="glyph stroked dashboard-dial">
 							<use xlink:href="#stroked-dashboard-dial"></use>
 						</svg> Thông Tin Cá Nhân</a></li>
-                <li><a href="index.php?page_gv=points"><svg class="glyph stroked male user ">
+                <li class="<?php if($_GET['page_gv'] == 'points'){ echo "active";} ?>"><a href="index.php?page_gv=points"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản Lí Điểm Học Sinh</a></li>
 				
 				

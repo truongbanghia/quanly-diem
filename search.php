@@ -47,7 +47,7 @@
 					</nav>
     <table align="center" class="infor">
         <tr>
-            <th>Họ Và Tên: </th>
+            <th style="padding-top: 15px;">Họ Và Tên: </th>
             <td><?php echo $row_view['TenHS'] ?></td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@
             <td><?php echo $row_view['NgaySinh'] ?></td>
         </tr>
         <tr>
-            <th>Năm Học: </th>
+            <th style="padding-bottom: 15px;">Năm Học: </th>
             <td><?php echo $row_view['NamHoc'] ?></td>
         </tr>
     </table>

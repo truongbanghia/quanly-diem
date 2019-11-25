@@ -65,16 +65,16 @@
 		<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 			<?php include_once('search_box.php'); ?>
 			<ul class="nav menu">
-				<li><a href="index.php"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
-				<li><a href="index.php?page=user"><svg class="glyph stroked male user ">
+				<li class="<?php if($_GET['page'] == ""){ echo "active";} ?>"><a href="index.php"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Thống Kê - Báo Cáo</a></li>
+				<li class="<?php if($_GET['page'] == "user"){ echo "active";} ?>"><a href="index.php?page=user"><svg class="glyph stroked male user ">
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
-				<li><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
+				<li class="<?php if($_GET['page'] == "teacher"){ echo "active";} ?>"><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Giáo Viên</a></li>
-				<li><a href="index.php?page=assigned"><svg class="glyph stroked male user ">
+				<li class="<?php if($_GET['page'] == "assigned"){ echo "active";} ?>"><a href="index.php?page=assigned"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-app-window-with-content" /></svg>Phân Công Giảng Dạy</a></li>
-                <li><a href="index.php?page=class"><svg class="glyph stroked male user ">
+                <li class="<?php if($_GET['page'] == "class"){ echo "active";} ?>"><a href="index.php?page=class"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản lý Học Sinh</a></li>
-				<li><a href="index.php?page=diem"><svg class="glyph stroked open folder">
+				<li class="<?php if($_GET['page'] == "diem"){ echo "active";} ?>"><a href="index.php?page=diem"><svg class="glyph stroked open folder">
 							<use xlink:href="#stroked-open-folder" /></svg>Quản lý Điểm</a></li>
 				
 				
