@@ -30,6 +30,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Thống kê - Báo Cáo</h1>
+				<form method="post" action="excel_thongke.php" style="margin: 10px;">					
+                    <button type="submit" name="btnExport" class="btn btn-info">Xuất Danh Sách Thống Kê</button>                                     
+				</form>
 			</div>
 		</div><!--/.row-->
 		
