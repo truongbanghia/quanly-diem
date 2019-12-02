@@ -43,10 +43,5 @@ if(isset($_POST['btnImport'])){
                 $query = mysqli_query($conn,$sql_update);
                 header('location: ../admin/index.php?page_gv=list_points&MaHocKy='.$id_hk.'&MaMonHoc='.$id_monhoc.'&MaLopHoc='.$id_lop.'');  
             }
-            
-           
-            
-            
-    
 }
 

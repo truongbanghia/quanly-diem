@@ -46,17 +46,23 @@
 				<li class="active">Thêm Học Sinh</li>
 			</ol>
 		</div><!--/.row-->
-		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Thêm Học Sinh: Lớp <?php echo $row['Tenlophoc'] ?>  </h1>
+                <h1 class="page-header">Thêm Học Sinh: Lớp <?php echo $row['Tenlophoc'] ?>  </h1>
+                <form method="post" action="excel_add_hs.php" enctype="multipart/form-data">
+                    <input type="hidden" name="class_id" value="<?php echo $class_id; ?>">
+                    <input type="file" name="file">
+                    <button type="submit" name="btnImport" class="btn btn-success">Excel-Chấp Nhận</button>                                     
+                </form> 
 			</div>
         </div><!--/.row-->
         <div class="row">
                 <div class="col-lg-12">
+                
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="col-md-8">
+                                
                             <!-- <div class="alert alert-danger">Tên lớp học đã bị trùng !</div> -->
                                 <form role="form" method="post">
                                 <div class="form-group">
@@ -98,10 +104,8 @@
                                 <button name="sbm" type="submit" class="btn btn-success">Thêm mới</button>
                                 <button type="reset" class="btn btn-default">Làm mới</button>
                                 
-                        </form>
-                        <form  method="POST" enctype="multipart/form-data">
-                            <input type="file" name="file">
-                        </form>
+                        </form> 
+                                           
                         </div>
                     </div>
                 </div><!-- /.col-->

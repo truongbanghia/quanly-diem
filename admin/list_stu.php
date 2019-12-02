@@ -34,9 +34,11 @@
             <a href="index.php?page=add_stu&class_id=<?php echo $class_id; ?>" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i> Thêm Học Sinh
             </a>
-                                          
+                                                                     
         </div>                               
-        
+        <form method="post" action="excel_add_mau.php" style="margin: 10px;">					
+            <button type="submit" name="btnExport" class="btn btn-info">Mẫu Thêm HS - Excel</button>                                     
+		</form>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
