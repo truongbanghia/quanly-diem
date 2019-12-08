@@ -74,14 +74,19 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Tên Học Kỳ</label>
-                                        <select name="maHK" class="form-control">
+                                        <label>Năm Học</label>
+                                        <select name="maNH" id="namHoc" class="form-control">                                            
+                                            <option value=""><--Chọn Năm Học--></option>
                                             <?php
-                                                $query_hocky = mysqli_query($conn,"SELECT * FROM hocky");
-                                                while ($row = mysqli_fetch_assoc($query_hocky)) {                                              
+                                                $query_hocky = mysqli_query($conn,"SELECT * FROM namhoc");
+                                                while ($row = mysqli_fetch_assoc($query_hocky)) {                                                                                       
                                             ?>
-                                                <option value=<?php echo $row['MaHocKy']; ?> ><?php echo $row['TenHocKy']; ?></option> 
-                                            <?php } ?>                     
+                                                <option value=<?php echo $row['NamHoc']; ?> ><?php echo $row['NamHoc']; ?></option> 
+                                            <?php } ?>                             
+                                        </select>
+                                        <label>Tên Học Kỳ</label>
+                                        <select name="maHK" id="maHK" class="form-control">
+                                                <option value=""><--Chọn Học Kỳ--></option>                                                                                                                                                      
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -97,4 +102,15 @@
                 </div><!-- /.col-->
             </div><!-- /.row -->
 		
-	</div>	<!--/.main-->	
+    </div>	<!--/.main-->	
+    
+    <script>
+        jQuery(document).ready(function($){
+            $("#namHoc").change(function(event){
+                namHoc =  $("#namHoc").val();
+                $.post('jquery_hocky.php',{"namHoc": namHoc}, function(data){
+                    $("#maHK").html(data);
+                });
+            });
+        });
+    </script>
