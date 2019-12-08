@@ -20,12 +20,17 @@ if (!defined('TEMPLATE')) {
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách phân công giảng dạy</h1>
+                <h1 class="page-header">Danh sách phân công giảng dạy</h1>
+                <div id="toolbar" class="btn-group">
+                    <a href="index.php?page=add_nam" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i> Thêm Năm Học
+                    </a>                                                                                    
+                </div> 
 			</div>
 		</div><!--/.row-->
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
+			<div class="col-lg-12">                
+				<div class="panel panel-default">                    
 					<div class="panel-body">
                         <table 
                             data-toolbar="#toolbar"

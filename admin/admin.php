@@ -17,8 +17,10 @@
 		<link href="css/styles.css" rel="stylesheet">
 
 		<!--Icons-->
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-table.js"></script>
 		<script src="js/lumino.glyphs.js"></script>
-
 		<!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
@@ -157,6 +159,9 @@
 					case 'change_pass':
 						include_once('change_pass.php');
 						break;
+					case 'add_nam':
+						include_once('add_nam.php');
+						break;
 					default:
 						include_once('statistic.php');
 						break;
@@ -169,9 +174,7 @@
         ?>
 
 
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap-table.js"></script>	
+			
 	</body>
 
 </html>
