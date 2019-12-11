@@ -20,12 +20,12 @@ CREATE TABLE `dayhoc` (
 
 INSERT INTO dayhoc VALUES("1","A","1","2","20191","DEC");
 INSERT INTO dayhoc VALUES("2","GD","2","1","20191","ABC");
-INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","Tin");
+INSERT INTO dayhoc VALUES("3","Ti","3","1","20191","");
 INSERT INTO dayhoc VALUES("4","CN","5","2","20191","abc");
 INSERT INTO dayhoc VALUES("5","H","6","1","20191","ád");
 INSERT INTO dayhoc VALUES("7","T","9","1","20191","A");
 INSERT INTO dayhoc VALUES("8","V","8","1","20191","abc");
-INSERT INTO dayhoc VALUES("14","A","1","1","20191","ABC");
+INSERT INTO dayhoc VALUES("14","A","1","1","20191","Cô giáo xinh đẹp");
 INSERT INTO dayhoc VALUES("16","H","6","2","20191","1");
 INSERT INTO dayhoc VALUES("17","A","4","3","20191","ádá");
 INSERT INTO dayhoc VALUES("18","CN","5","3","20191","1");
@@ -69,7 +69,7 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_hocsinh` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`),
   CONSTRAINT `fk_diem_mahk` FOREIGN KEY (`MaHocKy`) REFERENCES `hocky` (`MaHocKy`),
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=564 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24948 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO diem VALUES("420","20191","A","210001","1","8","9","7.5","6","8","9","8");
 INSERT INTO diem VALUES("421","20192","A","210001","1","","","","","","","0");
@@ -215,6 +215,54 @@ INSERT INTO diem VALUES("560","20191","Ti","210009","2","","","","","","","0");
 INSERT INTO diem VALUES("561","20192","Ti","210009","2","","","","","","","0");
 INSERT INTO diem VALUES("562","20191","V","210009","2","","","","","","","0");
 INSERT INTO diem VALUES("563","20192","V","210009","2","","","","","","","0");
+INSERT INTO diem VALUES("23348","20191","A","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23349","20192","A","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23350","20191","CN","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23351","20192","CN","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23352","20191","GD","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23353","20192","GD","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23354","20191","H","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23355","20192","H","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23356","20191","S","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23357","20192","S","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23358","20191","T","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23359","20192","T","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23360","20191","Ti","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23361","20192","Ti","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23362","20191","V","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23363","20192","V","210010","1","","","","","","","0");
+INSERT INTO diem VALUES("23364","20191","A","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23365","20192","A","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23366","20191","CN","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23367","20192","CN","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23368","20191","GD","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23369","20192","GD","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23370","20191","H","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23371","20192","H","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23372","20191","S","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23373","20192","S","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23374","20191","T","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23375","20192","T","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23376","20191","Ti","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23377","20192","Ti","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23378","20191","V","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("23379","20192","V","210011","1","","","","","","","0");
+INSERT INTO diem VALUES("24932","20191","A","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24933","20192","A","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24934","20191","CN","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24935","20192","CN","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24936","20191","GD","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24937","20192","GD","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24938","20191","H","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24939","20192","H","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24940","20191","S","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24941","20192","S","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24942","20191","T","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24943","20192","T","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24944","20191","Ti","210012","1","10","","","","","","1");
+INSERT INTO diem VALUES("24945","20192","Ti","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24946","20191","V","210012","1","","","","","","","0");
+INSERT INTO diem VALUES("24947","20192","V","210012","1","","","","","","","0");
 
 
 
@@ -253,11 +301,14 @@ CREATE TABLE `hocky` (
   `TenHocKy` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `HeSoHK` int(1) NOT NULL,
   `NamHoc` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`MaHocKy`)
+  PRIMARY KEY (`MaHocKy`),
+  KEY `NamHoc` (`NamHoc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO hocky VALUES("20191","Hoc Ky I","1","19-20");
 INSERT INTO hocky VALUES("20192","Hoc Ky II","2","19-20");
+INSERT INTO hocky VALUES("20211","Học Kỳ I","1","21-22");
+INSERT INTO hocky VALUES("20212","Học Kỳ II","2","21-22");
 
 
 
@@ -287,6 +338,9 @@ INSERT INTO hocsinh VALUES("210006","3","Nhâm Thị Hương","Nữ","1997-03-07
 INSERT INTO hocsinh VALUES("210007","3","Lê Thu Hiền","Nữ","1997-07-03","Ninh Bình","Kinh","A","B");
 INSERT INTO hocsinh VALUES("210008","2","Lê Đức Tiến","Nam","1997-07-27","Hải Phòng","Kinh","A","B");
 INSERT INTO hocsinh VALUES("210009","2","Trương Văn A","Nam","1997-05-11","Hà Nội","Kinh","A","B");
+INSERT INTO hocsinh VALUES("210010","1","Nam","Nam","2474-12-25","Hà Nội","Kinh","A","B");
+INSERT INTO hocsinh VALUES("210011","1","Nữ","Nữ","2474-12-25","Hà Nội","Kinh","A","B");
+INSERT INTO hocsinh VALUES("210012","1","ABC","Nam","1997-04-11","HN","Kinh","A","B");
 
 
 
@@ -328,6 +382,21 @@ INSERT INTO monhoc VALUES("V","Văn","140","2");
 
 
 
+CREATE TABLE `namhoc` (
+  `MaNamHoc` int(6) NOT NULL AUTO_INCREMENT,
+  `NamHoc` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`MaNamHoc`),
+  UNIQUE KEY `NamHoc` (`NamHoc`),
+  CONSTRAINT `namhoc_ibfk_1` FOREIGN KEY (`NamHoc`) REFERENCES `hocky` (`NamHoc`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO namhoc VALUES("1","19-20");
+INSERT INTO namhoc VALUES("3","21-22");
+
+
+
+
+
 CREATE TABLE `thongke` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `MaHS` int(6) NOT NULL,
@@ -337,9 +406,11 @@ CREATE TABLE `thongke` (
   PRIMARY KEY (`id`),
   KEY `MaHS` (`MaHS`),
   KEY `MaLopHoc` (`MaLopHoc`),
+  KEY `NamHoc` (`NamHoc`),
   CONSTRAINT `thongke_ibfk_1` FOREIGN KEY (`MaHS`) REFERENCES `hocsinh` (`MaHS`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `thongke_ibfk_2` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `thongke_ibfk_2` FOREIGN KEY (`MaLopHoc`) REFERENCES `lophoc` (`MaLopHoc`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `thongke_ibfk_3` FOREIGN KEY (`NamHoc`) REFERENCES `namhoc` (`NamHoc`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1567 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO thongke VALUES("34","210001","1","19-20","2.5");
 INSERT INTO thongke VALUES("35","210002","1","19-20","2.5");
@@ -350,6 +421,9 @@ INSERT INTO thongke VALUES("39","210006","3","19-20","0");
 INSERT INTO thongke VALUES("40","210007","3","19-20","0");
 INSERT INTO thongke VALUES("41","210008","2","19-20","0");
 INSERT INTO thongke VALUES("42","210009","2","19-20","0");
+INSERT INTO thongke VALUES("1467","210010","1","19-20","0");
+INSERT INTO thongke VALUES("1468","210011","1","19-20","0");
+INSERT INTO thongke VALUES("1566","210012","1","19-20","0");
 
 
 

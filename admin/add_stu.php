@@ -23,17 +23,25 @@
 
         $sql_mon = "SELECT MaMonHoc FROM monhoc";
         $query_mon=mysqli_query($conn,$sql_mon);
+
+        $namHoc = $_POST['namHoc'];
+        $sql_nam_hoc = "SELECT * FROM hocky WHERE NamHoc = '$namHoc'";
+        $query_nam_hoc = mysqli_query($conn,$sql_nam_hoc);
+        while($rowNH = mysqli_fetch_assoc($query_nam_hoc)){
+            $maHK[] = $rowNH['MaHocKy'];
+        }
+
         while ($row_mon = mysqli_fetch_assoc($query_mon)) {
             $id_mon = $row_mon['MaMonHoc'];
-            $sql_add_diem="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20191','$id_mon','$stu_id','$class_id')";
+            $sql_add_diem="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('$maHK[0]','$id_mon','$stu_id','$class_id')";
             $query_add_diem = mysqli_query($conn,$sql_add_diem);
 
-            $sql_add_diem_2="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('20192','$id_mon','$stu_id','$class_id')";
+            $sql_add_diem_2="INSERT INTO diem(MaHocKy, MaMonHoc, MaHS, MaLopHoc) VALUES('$maHK[1]','$id_mon','$stu_id','$class_id')";
             $query_add_diem_2 = mysqli_query($conn,$sql_add_diem_2);
 
             
         }
-        $query_thongke = mysqli_query($conn,"INSERT INTO thongke(MaHS,MaLopHoc,NamHoc) VALUES('$stu_id','$class_id','19-20')");
+        $query_thongke = mysqli_query($conn,"INSERT INTO thongke(MaHS,MaLopHoc,NamHoc) VALUES('$stu_id','$class_id','$namHoc')");
         header('location: index.php?page=list_stu&id_class='.$class_id.'');
     }
 ?>
@@ -100,7 +108,19 @@
                                 <div class="form-group">
                                     <label>Lớp</label>
                                     <input name="stu_class" required type="text" class="form-control" value="<?php echo $row['Tenlophoc'] ?>">
-                                </div>                           
+                                </div>
+                                <div class="form-group">
+                                    <label>Năm Học</label>
+                                    <select name="namHoc" id="namHoc">
+                                        <?php
+                                            $sql_NH = "SELECT * FROM namhoc";
+                                            $query_NH = mysqli_query($conn,$sql_NH);
+                                            while($row_NH = mysqli_fetch_assoc($query_NH)){
+                                        ?>
+                                        <option value="<?php echo $row_NH['NamHoc'] ?>"><?php echo $row_NH['NamHoc'] ?></option>
+                                            <?php } ?>
+                                    </select>
+                                </div>                            
                                 <button name="sbm" type="submit" class="btn btn-success">Thêm mới</button>
                                 <button type="reset" class="btn btn-default">Làm mới</button>
                                 

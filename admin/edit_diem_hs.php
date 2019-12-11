@@ -77,7 +77,11 @@
                                     <td class="form-group"><input style="width: 80px;" type="text" name="Diem1Tiet2" value="<?php echo $row_view['Diem1Tiet2']; ?>"></td>
                                     <td class="form-group"><input style="width: 80px;" type="text" name="DiemThi" value="<?php echo $row_view['DiemThi']; ?>"></td> 
                                     <?php
-                                        $diemTBMon = round(($row_view['DiemMieng']+$row_view['Diem15Phut1']+$row_view['Diem15Phut2']+$row_view['Diem1Tiet1']*2+$row_view['Diem1Tiet2']*2+$row_view['DiemThi']*3)/10,1);
+                                        if(!empty($row_view['DiemMieng']) && !empty($row_view['Diem15Phut1']) && !empty($row_view['Diem15Phut2']) && !empty($row_view['Diem1Tiet1']) && !empty($row_view['Diem1Tiet2']) && !empty($row_view['DiemThi'])){
+                                            $diemTBMon = round(($row_view['DiemMieng']+$row_view['Diem15Phut1']+$row_view['Diem15Phut2']+$row_view['Diem1Tiet1']*2+$row_view['Diem1Tiet2']*2+$row_view['DiemThi']*3)/10,1);
+                                        }else{
+                                            $diemTBMon = '---';
+                                        }
                                         $query_insert = mysqli_query($conn,"INSERT INTO diem(DiemTB) VALUES($diemTBMon) WHERE MaMonHoc = '{$row_view['MaMonHoc']}' AND MaHS = '$stu_id' AND MaMonHoc = '$id_mon'");
                                     ?>                      
                                     <td><?php echo $diemTBMon; ?></td>

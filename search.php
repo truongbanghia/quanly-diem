@@ -2,6 +2,7 @@
     if (!defined('TEMPLATE')) {
         die('bạn không có quyền truy cập trang này!');
     }
+    
     if (isset($_GET['id_hs'])) {
         $id_hs = $_GET['id_hs'];
         //Bóc tách keyWord thành mảng
@@ -25,6 +26,8 @@
      }else{
         $id_hs = '';
      }
+
+     $maHK = ['20191','20192']; 
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +40,9 @@
     <title>Bảng Điểm</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 
 <body id="search_main">
@@ -55,29 +61,43 @@
             <td><?php echo $row_view['Tenlophoc'] ?></td>
         </tr>
         <tr>
-            <th>Ngày Sinh: </th>
+            <th style="padding-bottom: 15px;">Ngày Sinh: </th>
             <td><?php echo $row_view['NgaySinh'] ?></td>
-        </tr>
-        <tr>
-            <th style="padding-bottom: 15px;">Năm Học: </th>
-            <td><?php echo $row_view['NamHoc'] ?></td>
-        </tr>
+        </tr>       
     </table>
-    <form action="">
-        <label><strong>Năm Học</strong></label>
-        <select name="nam_hoc" id="">
-            <option selected value="1">2019-2020</option>
+    <?php 
+        if(isset($_POST['sbm'])){
+            $nam_hoc = $_POST['nam_hoc'];
+            $sql_hk = "SELECT * FROM hocky WHERE NamHoc = '$nam_hoc'";
+            $query_hk = mysqli_query($conn,$sql_hk);
+            if(mysqli_num_rows($query_hk) == ""){                
+                         
+            }else{
+                while($row_hk = mysqli_fetch_assoc($query_hk)){
+                    $maHK[] = $row_hk['MaHocKy'];
+                }
+            }           
+        }
+    ?>
+    <form method="post">
+        <label><strong>Năm Học</strong></label>        
+        <select name="nam_hoc" id="namHoc">
+            <option value="18-19">18-19</option>          
+            <option selected value="19-20">19-20</option>
+            <option value="20-21">20-21</option>                   
         </select>
+        <!-- <button style="height: 30px;" type="submit" name="sbm" >Chấp nhận</button> -->
     </form>
-    <table align="center" class="result_sr">
+        
+   <div id="ketqua">
+   <table align="center" class="result_sr">
         <thead>
             <tr>
                 <th colspan="11">
                     <h2>Bảng kết quả học tập</h2>
                 </th>
             </tr>
-            <tr>
-                
+            <tr>                
                 <th>Mã Môn Học</th>
                 <th>Tên Môn Học</th>
                 <th>Điểm Miệng</th>
@@ -97,10 +117,10 @@
                 $i=0; 
                 $j = 0;                          
                 while($row = mysqli_fetch_assoc($query)){
-                    if ($row['MaHocKy']=='20191') {
+                    if ($row['MaHocKy'] == $maHK[0]) {
                         $tb_hk += $row['DiemTB'];
                         $i++; 
-                    }elseif($row['MaHocKy']=='20192') {
+                    }elseif($row['MaHocKy']== $maHK[1]) {
                         $tb_hk2 += $row['DiemTB'];
                         $j++; 
                     }                                                                      
@@ -158,6 +178,18 @@
             </tr>
         </tfoot>
     </table>
+   </div>
+
+   <script>
+        jQuery(document).ready(function($){
+            $("#namHoc").change(function(event){
+                namHoc =  $("#namHoc").val();
+                $.post('jquery_search.php',{"namHoc": namHoc, "maHS": <?php echo $id_hs ?>}, function(data){
+                    $("#ketqua").html(data);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
