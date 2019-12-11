@@ -6,9 +6,9 @@
     // $tables             = array("dayhoc", "diem", "giaovien", "hocky", "hocsinh", "lophoc", "monhoc","user");
     
 
-    $result = mysqli_query($conn,"SHOW TABLES");
+    $result = mysqli_query($conn,"SHOW TABLES"); //Lấy tên của tất cả các bảng
     while ($row = mysqli_fetch_row($result)) {
-        $tables[] = $row[0];        
+        $tables[] = $row[0];   //Lấy tên từng bảng cho vào mảng tables     
     }
 
     // echo '<pre>';
@@ -17,14 +17,14 @@
     
     $return = '';
     
-    foreach ($tables as $table) {
-        $result = mysqli_query($conn, "SELECT * FROM ".$table);
+    foreach ($tables as $table) { // dùng foreach lặp bảng
+        $result = mysqli_query($conn, "SELECT * FROM ".$table); // Lấy dữ liệu của từng bảng
         //trả về số cột
-        $num_fields = mysqli_num_fields($result);
+        $num_fields = mysqli_num_fields($result); //trả về số cột của bảng là số nguyên
     
         // $return .= 'DROP TABLE '.$table.';';
         //trả về hàng hiện tại theo mảng liên tục
-        $row2 = mysqli_fetch_row(mysqli_query($conn, 'SHOW CREATE TABLE '.$table));
+        $row2 = mysqli_fetch_row(mysqli_query($conn, 'SHOW CREATE TABLE '.$table)); //trả về câu select tạo bảng đó
         $return .= "\n\n".$row2[1].";\n\n";
     
         for ($i=0; $i < $num_fields; $i++) { 

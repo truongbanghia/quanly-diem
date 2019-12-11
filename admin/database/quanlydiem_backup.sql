@@ -71,7 +71,7 @@ CREATE TABLE `diem` (
   CONSTRAINT `fk_diem_monhoc` FOREIGN KEY (`MaMonHoc`) REFERENCES `monhoc` (`MaMonHoc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24948 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO diem VALUES("420","20191","A","210001","1","8","9","7.5","6","8","9","8");
+INSERT INTO diem VALUES("420","20191","A","210001","1","10","10","7.5","6","8","9","8.3");
 INSERT INTO diem VALUES("421","20192","A","210001","1","","","","","","","0");
 INSERT INTO diem VALUES("422","20191","CN","210001","1","7","8","6","8","9","10","8.5");
 INSERT INTO diem VALUES("423","20192","CN","210001","1","","","","","","","0");
@@ -259,7 +259,7 @@ INSERT INTO diem VALUES("24940","20191","S","210012","1","","","","","","","0");
 INSERT INTO diem VALUES("24941","20192","S","210012","1","","","","","","","0");
 INSERT INTO diem VALUES("24942","20191","T","210012","1","","","","","","","0");
 INSERT INTO diem VALUES("24943","20192","T","210012","1","","","","","","","0");
-INSERT INTO diem VALUES("24944","20191","Ti","210012","1","10","","","","","","1");
+INSERT INTO diem VALUES("24944","20191","Ti","210012","1","10","7","9","","","","2.6");
 INSERT INTO diem VALUES("24945","20192","Ti","210012","1","","","","","","","0");
 INSERT INTO diem VALUES("24946","20191","V","210012","1","","","","","","","0");
 INSERT INTO diem VALUES("24947","20192","V","210012","1","","","","","","","0");
@@ -423,7 +423,7 @@ INSERT INTO thongke VALUES("41","210008","2","19-20","0");
 INSERT INTO thongke VALUES("42","210009","2","19-20","0");
 INSERT INTO thongke VALUES("1467","210010","1","19-20","0");
 INSERT INTO thongke VALUES("1468","210011","1","19-20","0");
-INSERT INTO thongke VALUES("1566","210012","1","19-20","0");
+INSERT INTO thongke VALUES("1566","210012","1","19-20","0.1");
 
 
 
