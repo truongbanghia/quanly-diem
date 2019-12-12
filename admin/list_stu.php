@@ -62,30 +62,8 @@
                                 <th>Xóa</th>
 						    </tr>
                             </thead>
-                            <tbody> 
-                                <?php
-                                    $sql = "SELECT * FROM hocsinh WHERE MaLopHoc = '$class_id'";
-                                    $query = mysqli_query($conn,$sql);                                                                                                             
-                                    while ($row = mysqli_fetch_assoc($query)) {                                                      
-                                ?>                               
-                                <tr>
-                                    <td><?php echo $row['MaHS']; ?></td>
-                                    <td><?php echo $row['TenHS']; ?></td>
-                                    <td><?php echo $row_view['Tenlophoc']; ?></td>
-                                    <td><?php echo $row['NgaySinh']; ?></td>
-                                    <td><?php echo $row['NoiSinh']; ?></td>
-                                    <td><?php echo $row['GioiTinh']; ?></td>
-                                    <td><?php echo $row['DanToc']; ?></td>
-                                    <td><?php echo $row['HoTenCha']; ?></td>
-                                    <td><?php echo $row['HoTenMe']; ?></td>
-                                    <td class="form-group">
-                                        <a href="index.php?page=edit_stu&id_hs=<?php echo $row['MaHS']; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    </td>
-                                    <td>
-                                        <a onclick=" return thongbao();" href="del_stu.php?id_hs=<?php echo $row['MaHS'] ?>&id_class=<?php echo $row['MaLopHoc'] ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </td>
-                                </tr> 
-                                    <?php } ?>                        
+                            <tbody id="list_stu">
+                                     
                             </tbody>
 						</table>
                     </div>
@@ -105,6 +83,42 @@
 		</div><!--/.row-->	
 	</div>	<!--/.main-->
 
+    <script>
+        $(document).ready(function(){ //được tải khi chạy html
+            var flag = 0;
+            $.ajax({
+                type: "post",
+                url: "paginate/ajax_load_more.php",
+                data: {
+                    'offset': 0,
+                    'limit': 8,
+                    'id_class': <?php echo $class_id ?>
+                },
+                success: function(data){
+                    $('#list_stu').append(data); //chèn html vào vị trí sau cùng
+                    flag += 8;
+                }               
+            });
+
+            $(window).scroll(function() { // lấy thông số của cửa sổ trình duyệt
+                if($(window).scrollTop() >= $(document).height() - $(window).height() - 200){
+                    $.ajax({
+                        type: "post",
+                        url: "paginate/ajax_load_more.php",
+                        data: {
+                            'offset': flag,
+                            'limit': 8,
+                            'id_class': <?php echo $class_id ?>
+                        },
+                        success: function(data){
+                            $('#list_stu').append(data);
+                            flag += 8;
+                        }               
+                    });
+                }
+            });
+         });
+    </script>
 	<!-- <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-table.js"></script>	 -->
