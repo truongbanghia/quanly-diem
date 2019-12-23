@@ -72,6 +72,8 @@
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Nhân Viên</a></li>
 				<li class="<?php if($_GET['page'] == "teacher"){ echo "active";} ?>"><a href="index.php?page=teacher"><svg class="glyph stroked male user ">
 							<use xlink:href="#stroked-male-user" /></svg>Quản lý Giáo Viên</a></li>
+				<li class="<?php if($_GET['page'] == "monhoc"){ echo "active";} ?>"><a href="index.php?page=monhoc"><svg class="glyph stroked male user ">
+							<use xlink:href="#stroked-open-folder" /></svg>Quản lý Môn học</a></li>
 				<li class="<?php if($_GET['page'] == "assigned"){ echo "active";} ?>"><a href="index.php?page=assigned"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-app-window-with-content" /></svg>Phân Công Giảng Dạy</a></li>
                 <li class="<?php if($_GET['page'] == "class"){ echo "active";} ?>"><a href="index.php?page=class"><svg class="glyph stroked male user ">
@@ -93,6 +95,15 @@
 					case 'search':
 						include_once('search.php');
 						break;
+					case 'monhoc':
+							include_once('monhoc.php');
+							break;
+					case 'add_monhoc':
+						include_once('add_monhoc.php');
+					break;	
+					case 'edit_monhoc':
+						include_once('edit_monhoc.php');
+					break;		
 					case 'user':
 						include_once('user.php');
 						break;

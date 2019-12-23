@@ -91,12 +91,12 @@
                 url: "paginate/ajax_load_more.php",
                 data: {
                     'offset': 0,
-                    'limit': 8,
+                    'limit': 10,
                     'id_class': <?php echo $class_id ?>
                 },
                 success: function(data){
-                    $('#list_stu').append(data); //chèn html vào vị trí sau cùng
-                    flag += 8;
+                    $('#list_stu').html(data); //chèn html vào vị trí sau cùng
+                    flag += 10;
                 }               
             });
 
@@ -107,12 +107,12 @@
                         url: "paginate/ajax_load_more.php",
                         data: {
                             'offset': flag,
-                            'limit': 8,
+                            'limit': 10,
                             'id_class': <?php echo $class_id ?>
                         },
                         success: function(data){
                             $('#list_stu').append(data);
-                            flag += 8;
+                            flag += 10;
                         }               
                     });
                 }

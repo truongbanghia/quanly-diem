@@ -25,7 +25,7 @@
 			</div>
 		</div><!--/.row-->
 		<div id="toolbar" class="btn-group">
-            <a href="index.php?page=add_user" class="btn btn-success">
+            <a href="index.php?page=add_user" class="btn btn-success <?php if($_SESSION['user_level'] == 2){ echo 'disabled';}?>">
                 <i class="glyphicon glyphicon-plus"></i> Thêm thành viên
             </a>
         </div>
