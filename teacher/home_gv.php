@@ -45,7 +45,7 @@
 									<use xlink:href="#stroked-male-user"></use>
 								</svg> <?php echo $_SESSION['mail_gv']; ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#"><svg class="glyph stroked male-user">
+								<li><a href="index.php?page_gv=personal"><svg class="glyph stroked male-user">
 											<use xlink:href="#stroked-male-user"></use>
 										</svg> Hồ sơ</a></li>
 								<li><a href="../admin/logout.php"><svg class="glyph stroked cancel">
@@ -60,15 +60,11 @@
 		</nav>
 
 		<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-			<form role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
-				</div>
-			</form>
+			<?php include_once('gv.search_box.php'); ?>
 			<ul class="nav menu">
-				<li class="<?php if($_GET['page_gv'] == ""){ echo "active";} ?>"><a href="index.php"><svg class="glyph stroked dashboard-dial">
+				<!-- <li class="<?php if($_GET['page_gv'] == ""){ echo "active";} ?>"><a href="index.php"><svg class="glyph stroked dashboard-dial">
 							<use xlink:href="#stroked-dashboard-dial"></use>
-						</svg> Thông Tin Cá Nhân</a></li>
+						</svg> Thông Tin Cá Nhân</a></li> -->
                 <li class="<?php if($_GET['page_gv'] == 'points'){ echo "active";} ?>"><a href="index.php?page_gv=points"><svg class="glyph stroked male user ">
                             <use xlink:href="#stroked-male-user" /></svg>Quản Lí Điểm Học Sinh</a></li>
 				
@@ -90,14 +86,16 @@
                     break;
                 case 'points':
                     include_once('points.php');
-					break;
-					
-				default:
+					break;					
+				case 'personal':
 					include_once('personal.php');
+					break;
+				case 'search':
+					include_once('gv_search.php');
 					break;
             }
         }else{
-            include_once('personal.php');
+            include_once('points.php');
         }			
            
         ?>
