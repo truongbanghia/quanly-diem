@@ -50,7 +50,7 @@
                                     <input name="kyI" required type="number" maxlength="6" class="form-control" placeholder="Ví dụ: 20191">
                                 </div> 
                                 <div class="form-group">
-                                    <label>Mã Học Kỳ I</label>
+                                    <label>Mã Học Kỳ II</label>
                                     <input name="kyII" required type="number" maxlength="6" class="form-control" placeholder="Ví dụ: 20192">
                                 </div> 
                                 <button name="sbm" type="submit" class="btn btn-success">Thêm mới</button>
